@@ -1,0 +1,31 @@
+import React from 'react';
+import { BSportMyBookingsButton } from '@/features/bsport/BSportMyBookingsButton';
+
+export const MyBookings: React.FC = () => {
+  return (
+    <section
+      id="my-bookings"
+      className="py-32 bg-stone-100 dark:bg-stone-900 relative z-30 transition-colors duration-700"
+    >
+      <div className="container mx-auto px-6 relative">
+        <div className="flex flex-col items-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-light text-stone-900 dark:text-white mb-6 text-center transition-colors duration-500">
+            Mis Reservas
+          </h2>
+          <p className="text-stone-600 dark:text-stone-400 text-sm font-light uppercase tracking-widest text-center max-w-md">
+            Consulta y gestiona tus clases
+          </p>
+        </div>
+
+        <div className="w-full flex justify-center">
+          <div className="w-full max-w-7xl min-h-[600px]">
+            <BSportMyBookingsButton
+              containerId="bsport-widget-897615"
+              className="w-full min-h-[600px]"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

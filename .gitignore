@@ -24,6 +24,8 @@ dist */
 
 # Playwright MCP outputs (snapshots, logs, screenshots)
 .playwright*/
+# Loose screenshots left in project root by Playwright when a bare filename is passed
+/*.png
 
 # Editor directories and files
 .vscode/*
