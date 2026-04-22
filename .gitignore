@@ -22,6 +22,9 @@ dist */
 # Archived files kept locally for reference, not part of the repo
 .archive/
 
+# Playwright MCP outputs (snapshots, logs, screenshots)
+.playwright*/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
