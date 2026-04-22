@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Navbar } from './Navbar';
-import { Footer } from './Footer';
-import { Modal } from './Modal';
+import { Navbar } from '@/layout/Navbar';
+import { Footer } from '@/layout/Footer';
+import { Modal } from '@/components/Modal';
 import { useLocation } from 'react-router-dom';
 
 interface LayoutProps {

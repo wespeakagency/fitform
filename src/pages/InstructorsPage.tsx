@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Instagram } from 'lucide-react';
-import { Button } from '../components/Button';
+import { Button } from '@/components/Button';
 
 const INSTRUCTORS = [
   { 

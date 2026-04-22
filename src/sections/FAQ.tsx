@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FAQItem } from '../types';
+import { FAQItem } from '@/types';
 import { Plus, Minus } from 'lucide-react';
 
 const FAQS: FAQItem[] = [

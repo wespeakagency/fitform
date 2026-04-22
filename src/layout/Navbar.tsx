@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { BSportLoginButton } from './BSportLoginButton';
+import { BSportLoginButton } from '@/features/bsport/BSportLoginButton';
 
 interface NavbarProps {
   toggleTheme: () => void;

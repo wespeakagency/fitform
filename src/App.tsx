@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import { Layout } from './components/Layout';
-import { HomePage } from './pages/HomePage';
-import { InstructorsPage } from './pages/InstructorsPage';
+import { Layout } from '@/layout/Layout';
+import { HomePage } from '@/pages/HomePage';
+import { InstructorsPage } from '@/pages/InstructorsPage';
 
 const App: React.FC = () => {
   const [isDark, setIsDark] = useState(true);
