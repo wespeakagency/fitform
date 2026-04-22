@@ -19,6 +19,9 @@ dist */
 # Local Claude Code settings (personal, not shared)
 .claude/settings.local.json
 
+# Archived files kept locally for reference, not part of the repo
+.archive/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
