@@ -21,6 +21,21 @@ Este documento planifica la recuperación del repositorio y la implementación d
 
 ---
 
+## Note (2026-04-22): phase reordering
+
+Phase 5 (ESLint + Prettier) has been **deferred to the end of the
+roadmap**, after feature implementation. Introducing strict linting to
+a vibecoded codebase mid-refactor produces too much noise (warnings
+touching nearly every file) that distracts from the actual refactor
+and feature goals. Linting is treated as a terminal quality-gate pass,
+not an early structural step.
+
+**New effective execution order**:
+`0 → 1 → 2 → 3 → 4 → 6 (security) → 7 (pre-features) → 8 (features) → 5 (linting)`
+
+The phase descriptions below keep their original numbering; only the
+order of execution has changed.
+
 ## Principios rectores
 
 1. **Implementación al final** — no se tocan features hasta tener casa limpia.
