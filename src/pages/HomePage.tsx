@@ -1,6 +1,7 @@
 import React from 'react';
 import { Hero } from '@/sections/Hero';
 import { About } from '@/sections/About';
+import { Packages } from '@/sections/Packages';
 import { Pricing } from '@/sections/Pricing';
 import { MyBookings } from '@/sections/MyBookings';
 import { Team } from '@/sections/Team';
@@ -13,6 +14,7 @@ export const HomePage: React.FC = () => {
       <Hero />
       <About />
       <Team />
+      <Packages />
       <Pricing />
       <MyBookings />
       <FAQ />

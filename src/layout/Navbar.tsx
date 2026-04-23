@@ -24,6 +24,7 @@ export const Navbar: React.FC<NavbarProps> = ({ toggleTheme, isDark }) => {
 
   const navLinks = [
     { name: 'Concepto', href: '#about' },
+    { name: 'Precios', href: '#packages' },
     { name: 'Clases', href: '#pricing' },
     { name: 'Mis Reservas', href: '#my-bookings' },
     { name: 'Equipo', href: '#team' },
