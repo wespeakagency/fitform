@@ -16,7 +16,7 @@ export const Hero: React.FC = () => {
              <img
                 src="/images/home.webp"
                 alt="FitForm Studio Hero"
-                fetchPriority="high"
+                {...{ fetchpriority: 'high' }}
                 decoding="async"
                 className="w-full h-full object-cover grayscale"
              />

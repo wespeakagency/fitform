@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider>
-      <Router>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Layout
           isPrivacyOpen={isPrivacyOpen}
           setIsPrivacyOpen={setIsPrivacyOpen}
