@@ -69,9 +69,11 @@ export const About: React.FC = () => {
                     ${getSlideStyles(index)}
                   `}
                 >
-                   <img 
-                     src={img} 
-                     alt={`FitForm Concept ${index + 1}`} 
+                   <img
+                     src={img}
+                     alt={`FitForm Concept ${index + 1}`}
+                     loading="lazy"
+                     decoding="async"
                      className="w-full h-full object-cover"
                    />
                    {/* Overlay gradient for depth */}
@@ -103,9 +105,11 @@ export const About: React.FC = () => {
           <div className="order-2 lg:order-1 relative group perspective-1000">
              <div className="absolute inset-0 bg-gradient-to-tr from-stone-200 to-stone-300 dark:from-stone-500/20 dark:to-white/10 blur-[80px] rounded-full opacity-40 transition-colors duration-700 pointer-events-none"></div>
              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl glass-panel-dark border-0 transform transition-transform duration-700 group-hover:rotate-y-2">
-                <img 
-                  src="https://github.com/ryandoelsol/fitform/blob/Imagenes/Concepto%20FitForm.jpg?raw=true" 
-                  alt="FitForm Space" 
+                <img
+                  src="https://github.com/ryandoelsol/fitform/blob/Imagenes/Concepto%20FitForm.jpg?raw=true"
+                  alt="FitForm Space"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:scale-105 transition-all duration-1000 grayscale hover:grayscale-0"
                 />
              </div>

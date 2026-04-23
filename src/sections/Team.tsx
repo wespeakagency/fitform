@@ -17,9 +17,11 @@ export const Team: React.FC = () => {
             
             <Link to="/instructors" className="block relative w-full h-[60vh] rounded-3xl overflow-hidden group cursor-pointer">
                 <div className="absolute inset-0 bg-stone-200 dark:bg-stone-900 animate-pulse z-0 transition-colors duration-700"></div>
-                <img 
-                    src="https://github.com/wespeakagency/imagenesweb_fitform/blob/main/coaches%20completos%203.png?raw=true" 
-                    alt="FitForm Team" 
+                <img
+                    src="https://github.com/wespeakagency/imagenesweb_fitform/blob/main/coaches%20completos%203.png?raw=true"
+                    alt="FitForm Team"
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale group-hover:grayscale-0 z-10"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-transparent to-transparent z-20 opacity-80"></div>

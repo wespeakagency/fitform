@@ -123,9 +123,11 @@ export const InstructorsPage: React.FC = () => {
             <div key={instructor.id} className="group relative">
                <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-stone-200 dark:bg-stone-900 mb-6 relative">
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-transparent to-transparent opacity-60 z-10 transition-opacity duration-500 group-hover:opacity-40"></div>
-                  <img 
-                     src={instructor.image} 
-                     alt={instructor.name} 
+                  <img
+                     src={instructor.image}
+                     alt={instructor.name}
+                     loading="lazy"
+                     decoding="async"
                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
                   />
                   

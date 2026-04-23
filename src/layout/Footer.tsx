@@ -41,9 +41,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 border-b border-white/10 pb-20">
           <div className="col-span-1 md:col-span-2 flex flex-col justify-between items-center text-center">
-            <img 
-              src="https://i.postimg.cc/bwBqCCY7/Logo-fitform-png-(2).png" 
-              alt="FitForm Logo" 
+            <img
+              src="https://i.postimg.cc/bwBqCCY7/Logo-fitform-png-(2).png"
+              alt="FitForm Logo"
+              loading="lazy"
+              decoding="async"
               className="h-16 w-auto object-contain mb-6"
             />
             <p className="max-w-xs leading-relaxed normal-case text-xs text-stone-400 font-light">
