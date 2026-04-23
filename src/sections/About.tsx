@@ -1,11 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
-
-const CAROUSEL_IMAGES = [
-  "/images/carousel/1.webp",
-  "/images/carousel/2.webp",
-  "/images/carousel/3.webp",
-];
+import { CONCEPT_CAROUSEL_IMAGES as CAROUSEL_IMAGES } from '@/data/carousel';
 
 export const About: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);

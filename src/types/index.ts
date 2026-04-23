@@ -31,6 +31,14 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface Instructor {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+}
+
 export enum PackageType {
   STANDARD = 'STANDARD',
   PM = 'PM'
