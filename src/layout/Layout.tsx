@@ -6,22 +6,18 @@ import { useLocation } from 'react-router-dom';
 
 interface LayoutProps {
   children: React.ReactNode;
-  isDark: boolean;
-  toggleTheme: () => void;
   isPrivacyOpen: boolean;
   setIsPrivacyOpen: (open: boolean) => void;
   isTermsOpen: boolean;
   setIsTermsOpen: (open: boolean) => void;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ 
-  children, 
-  isDark, 
-  toggleTheme,
+export const Layout: React.FC<LayoutProps> = ({
+  children,
   isPrivacyOpen,
   setIsPrivacyOpen,
   isTermsOpen,
-  setIsTermsOpen
+  setIsTermsOpen,
 }) => {
   const { pathname } = useLocation();
 
@@ -31,8 +27,8 @@ export const Layout: React.FC<LayoutProps> = ({
 
   return (
     <div className="min-h-screen font-sans bg-fitform-bone dark:bg-fitform-obsidian text-stone-900 dark:text-stone-50 transition-colors duration-700 selection:bg-fitform-teal selection:text-white">
-      <Navbar toggleTheme={toggleTheme} isDark={isDark} />
-      
+      <Navbar />
+
       <main className="relative min-h-[80vh]">
         {children}
       </main>

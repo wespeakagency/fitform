@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/Button';
+import { scrollToSection } from '@/lib/scroll';
 
 export const Hero: React.FC = () => {
   return (
@@ -36,24 +37,16 @@ export const Hero: React.FC = () => {
         </p>
         
         <div className="flex flex-col md:flex-row gap-6 justify-center animate-fade-up opacity-0" style={{ animationDelay: '0.8s' }}>
-          <a href="#pricing" onClick={(e) => {
-            e.preventDefault();
-            const element = document.getElementById('pricing');
-            if (element) {
-              const offset = 100;
-              const elementPosition = element.getBoundingClientRect().top;
-              const offsetPosition = elementPosition + window.pageYOffset - offset;
-              window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-              });
-            }
-          }}>
-  <Button>
-    Reservar Clase
-  </Button>
-</a>
-          <Button variant="outline" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth'})}>
+          <a
+            href="#pricing"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('pricing');
+            }}
+          >
+            <Button>Reservar Clase</Button>
+          </a>
+          <Button variant="outline" onClick={() => scrollToSection('about')}>
             Descubre Más
           </Button>
         </div>

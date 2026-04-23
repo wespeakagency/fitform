@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BSportWidget } from '@/features/bsport/BSportWidget';
+import { useNavHandler } from '@/hooks/useNavHandler';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const LOGIN_WIDGET_CLASSES =
   'bsport-login-wrapper min-w-[120px] min-h-[40px] flex items-center justify-center relative z-50 [&_*]:!uppercase [&_*]:!tracking-[0.2em] transition-all cursor-pointer';
-
-interface NavbarProps {
-  toggleTheme: () => void;
-  isDark: boolean;
-}
 
 const MAIN_LINKS = [
   { name: 'Concepto', href: '#about' },
@@ -26,7 +23,8 @@ const ALL_SECTION_IDS = [
   BOOKINGS_LINK.href.replace('#', ''),
 ];
 
-export const Navbar: React.FC<NavbarProps> = ({ toggleTheme, isDark }) => {
+export const Navbar: React.FC = () => {
+  const { isDark, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
@@ -60,25 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ toggleTheme, isDark }) => {
     return () => observer.disconnect();
   }, [location.pathname]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('http')) return;
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    const scrollToElement = () => {
-      const element = document.getElementById(targetId);
-      if (element) {
-        const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - 100;
-        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-      }
-    };
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(scrollToElement, 300);
-    } else {
-      scrollToElement();
-    }
-    setIsMenuOpen(false);
-  };
+  const handleNavClick = useNavHandler(() => setIsMenuOpen(false));
 
   const isLinkActive = (href: string) => activeSection === href.replace('#', '');
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Instagram, Facebook } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavHandler } from '@/hooks/useNavHandler';
 
 interface FooterProps {
   onOpenPrivacy: () => void;
@@ -8,34 +8,7 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    
-    const scrollToElement = () => {
-      const element = document.getElementById(targetId);
-      if (element) {
-        const offset = 100;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
-      }
-    };
-
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(scrollToElement, 300);
-    } else {
-      scrollToElement();
-    }
-  };
+  const handleNavClick = useNavHandler();
   return (
     <footer className="bg-stone-950 text-stone-500 py-24 text-[10px] uppercase tracking-[0.1em] relative z-50 border-t border-white/10">
       <div className="container mx-auto px-6">
