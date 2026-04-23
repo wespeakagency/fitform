@@ -4,7 +4,7 @@ import { scrollToSection } from '@/lib/scroll';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative h-[110vh] w-full flex items-center justify-center overflow-hidden sticky top-0 z-0 bg-fitform-bone dark:bg-fitform-obsidian transition-colors duration-700">
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden lg:sticky lg:top-0 z-0 bg-fitform-bone dark:bg-fitform-obsidian transition-colors duration-700">
       {/* Background with animated gradients - Brand Colors */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-fitform-teal/30 dark:bg-fitform-teal/10 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[120px] opacity-40 animate-blob transition-colors duration-700"></div>
