@@ -12,9 +12,11 @@ export const Hero: React.FC = () => {
         
         {/* Subtle Image Overlay */}
         <div className="absolute inset-0 opacity-10 dark:opacity-30 mix-blend-overlay transition-opacity duration-700">
-             <img 
-                src="https://github.com/ryandoelsol/fitform/blob/Imagenes/Hero%20Fitform.png?raw=true" 
-                alt="FitForm Studio Hero" 
+             <img
+                src="/images/home.webp"
+                alt="FitForm Studio Hero"
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover grayscale"
              />
         </div>
