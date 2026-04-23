@@ -46,7 +46,7 @@ export const About: React.FC = () => {
   };
 
   return (
-    <section id="about" className="relative bg-white dark:bg-stone-950 py-32 z-10 rounded-t-[3rem] -mt-10 border-t border-stone-200 dark:border-white/5 shadow-[0_-20px_60px_rgba(0,0,0,0.1)] dark:shadow-[0_-20px_60px_rgba(0,0,0,0.5)] transition-colors duration-700">
+    <section id="about" className="scroll-mt-28 relative bg-white dark:bg-stone-950 py-32 z-10 rounded-t-[3rem] -mt-10 border-t border-stone-200 dark:border-white/5 shadow-[0_-20px_60px_rgba(0,0,0,0.1)] dark:shadow-[0_-20px_60px_rgba(0,0,0,0.5)] transition-colors duration-700">
       <div className="container mx-auto px-6">
         
         {/* Concept Block */}

@@ -4,7 +4,7 @@ import { Button } from '@/components/Button';
 
 export const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-32 bg-white dark:bg-stone-950 relative z-30 transition-colors duration-700">
+    <section id="contact" className="scroll-mt-28 py-32 bg-white dark:bg-stone-950 relative z-30 transition-colors duration-700">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           

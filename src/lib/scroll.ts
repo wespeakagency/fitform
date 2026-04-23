@@ -1,8 +1,7 @@
-const DEFAULT_NAVBAR_OFFSET = 100;
-
-export function scrollToSection(id: string, offset = DEFAULT_NAVBAR_OFFSET): void {
+export function scrollToSection(id: string): void {
   const el = document.getElementById(id);
   if (!el) return;
-  const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-  window.scrollTo({ top, behavior: 'smooth' });
+  // Uses the target section's `scroll-margin-top` to leave space for the
+  // fixed navbar — no manual offset math needed.
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }

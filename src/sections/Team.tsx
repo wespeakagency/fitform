@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Team: React.FC = () => {
   return (
-    <section id="team" className="py-32 bg-stone-50 dark:bg-stone-950 relative z-30 transition-colors duration-700">
+    <section id="team" className="scroll-mt-28 py-32 bg-stone-50 dark:bg-stone-950 relative z-30 transition-colors duration-700">
         <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row items-end justify-between mb-16">
                 <div>

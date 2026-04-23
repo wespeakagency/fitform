@@ -3,11 +3,14 @@ export interface NavRoute {
   href: string;
 }
 
+// Order matches the HomePage DOM order so navbar clicks always scroll down
+// (or up) in a predictable direction — no jumps "above an item that was
+// already behind you in the menu".
 export const MAIN_LINKS: NavRoute[] = [
   { name: 'Concepto', href: '#about' },
+  { name: 'Equipo', href: '#team' },
   { name: 'Precios', href: '#packages' },
   { name: 'Clases', href: '#pricing' },
-  { name: 'Equipo', href: '#team' },
   { name: 'Contacto', href: '#contact' },
 ];
 

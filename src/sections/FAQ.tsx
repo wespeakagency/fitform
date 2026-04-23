@@ -6,7 +6,7 @@ export const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-32 bg-stone-100 dark:bg-stone-900 relative z-40 border-t border-stone-200 dark:border-white/5 transition-colors duration-700">
+    <section id="faq" className="scroll-mt-28 py-32 bg-stone-100 dark:bg-stone-900 relative z-40 border-t border-stone-200 dark:border-white/5 transition-colors duration-700">
       <div className="container mx-auto px-6 max-w-3xl">
         <h2 className="text-xs font-bold text-stone-400 dark:text-stone-500 uppercase tracking-[0.3em] text-center mb-4">Dudas</h2>
         <h2 className="text-3xl md:text-4xl text-center mb-16 text-stone-900 dark:text-white font-light transition-colors duration-500">Preguntas Frecuentes</h2>
