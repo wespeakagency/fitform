@@ -12,10 +12,14 @@ export const MAIN_LINKS: NavRoute[] = [
 ];
 
 export const BOOKINGS_LINK: NavRoute = { name: 'Mis Reservas', href: '#my-bookings' };
+export const SHOP_LINK: NavRoute = { name: 'Tienda', href: '#shop' };
+
+// Links grouped on the right-side of the desktop separator (account / transactional).
+export const RIGHT_GROUP_LINKS: NavRoute[] = [BOOKINGS_LINK, SHOP_LINK];
 
 export const ALL_SECTION_IDS = [
   ...MAIN_LINKS.map((l) => l.href.replace('#', '')),
-  BOOKINGS_LINK.href.replace('#', ''),
+  ...RIGHT_GROUP_LINKS.map((l) => l.href.replace('#', '')),
 ];
 
 export const LOGIN_WIDGET_CLASSES =

@@ -2,7 +2,7 @@ import React from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { BSportWidget } from '@/features/bsport/BSportWidget';
 import { useTheme } from '@/contexts/ThemeContext';
-import { MAIN_LINKS, BOOKINGS_LINK, LOGIN_WIDGET_CLASSES } from './routes';
+import { MAIN_LINKS, RIGHT_GROUP_LINKS, LOGIN_WIDGET_CLASSES } from './routes';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -30,13 +30,16 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onNavClick }) =>
           </a>
         ))}
 
-        <a
-          href={BOOKINGS_LINK.href}
-          onClick={(e) => onNavClick(e, BOOKINGS_LINK.href)}
-          className="text-3xl font-display font-light tracking-tight text-fitform-navy dark:text-white hover:text-fitform-teal transition-colors"
-        >
-          {BOOKINGS_LINK.name}
-        </a>
+        {RIGHT_GROUP_LINKS.map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            onClick={(e) => onNavClick(e, link.href)}
+            className="text-3xl font-display font-light tracking-tight text-fitform-navy dark:text-white hover:text-fitform-teal transition-colors"
+          >
+            {link.name}
+          </a>
+        ))}
 
         <a
           href="#pricing"

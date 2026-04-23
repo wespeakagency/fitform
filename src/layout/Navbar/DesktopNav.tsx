@@ -2,7 +2,7 @@ import React from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { BSportWidget } from '@/features/bsport/BSportWidget';
 import { useTheme } from '@/contexts/ThemeContext';
-import { MAIN_LINKS, BOOKINGS_LINK, LOGIN_WIDGET_CLASSES, type NavRoute } from './routes';
+import { MAIN_LINKS, RIGHT_GROUP_LINKS, LOGIN_WIDGET_CLASSES, type NavRoute } from './routes';
 
 interface DesktopNavProps {
   activeSection: string | null;
@@ -46,7 +46,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
       {MAIN_LINKS.map(renderLink)}
 
       <div className="flex items-center gap-4 border-l border-stone-200 dark:border-white/10 pl-6">
-        {renderLink(BOOKINGS_LINK)}
+        {RIGHT_GROUP_LINKS.map(renderLink)}
 
         <button
           onClick={toggleTheme}
