@@ -15,11 +15,11 @@ export const Shop: React.FC = () => {
         </div>
 
         <div className="w-full flex justify-center">
-          <div className="w-full max-w-7xl min-h-[600px] text-stone-900 [color-scheme:light]">
+          <div className="w-full max-w-7xl min-h-[400px] md:min-h-[600px] text-stone-900 [color-scheme:light] overscroll-contain isolate">
             <BSportWidget
               containerId="bsport-widget-151352"
               variant="shop"
-              className="w-full min-h-[600px]"
+              className="w-full"
             />
           </div>
         </div>

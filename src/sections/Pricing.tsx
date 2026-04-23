@@ -18,11 +18,11 @@ export const Pricing: React.FC = () => {
         </div>
 
         <div className="w-full flex justify-center">
-          <div className="w-full max-w-7xl min-h-[600px]">
+          <div className="w-full max-w-7xl min-h-[400px] md:min-h-[600px] overscroll-contain isolate">
             <BSportWidget
               containerId="bsport-widget-395980"
               variant="calendar"
-              className="w-full min-h-[600px]"
+              className="w-full"
             />
           </div>
         </div>
