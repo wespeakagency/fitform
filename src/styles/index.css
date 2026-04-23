@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* BSport login widget — override colors per theme.
+   Targets every descendant inside .bsport-login-wrapper so the widget's
+   internal label, icon and border pick up the right contrast against
+   the navbar glass panel (light) or the dark pill (dark). */
+.bsport-login-wrapper * {
+  color: #1A2232 !important;        /* fitform-navy */
+  border-color: #1A2232 !important;
+}
+.bsport-login-wrapper svg {
+  fill: #1A2232 !important;
+}
+.bsport-login-wrapper *:hover {
+  color: #57534e !important;        /* stone-600 */
+  border-color: #57534e !important;
+}
+.bsport-login-wrapper svg:hover {
+  fill: #57534e !important;
+}
+
+.dark .bsport-login-wrapper * {
+  color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+}
+.dark .bsport-login-wrapper svg {
+  fill: #FFFFFF !important;
+}
+.dark .bsport-login-wrapper *:hover {
+  color: #D6D3D1 !important;        /* stone-300 */
+  border-color: #D6D3D1 !important;
+}
+.dark .bsport-login-wrapper svg:hover {
+  fill: #D6D3D1 !important;
+}
+
 /* Custom scrollbar styles */
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;

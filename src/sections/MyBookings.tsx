@@ -1,5 +1,5 @@
 import React from 'react';
-import { BSportMyBookingsButton } from '@/features/bsport/BSportMyBookingsButton';
+import { BSportWidget } from '@/features/bsport/BSportWidget';
 
 export const MyBookings: React.FC = () => {
   return (
@@ -19,8 +19,9 @@ export const MyBookings: React.FC = () => {
 
         <div className="w-full flex justify-center">
           <div className="w-full max-w-7xl min-h-[600px] text-stone-900 [color-scheme:light]">
-            <BSportMyBookingsButton
+            <BSportWidget
               containerId="bsport-widget-897615"
+              variant="consumerSpace"
               className="w-full min-h-[600px]"
             />
           </div>

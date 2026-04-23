@@ -1,5 +1,5 @@
 import React from 'react';
-import { BSportPackagesWidget } from '@/features/bsport/BSportPackagesWidget';
+import { BSportWidget } from '@/features/bsport/BSportWidget';
 
 export const Packages: React.FC = () => {
   return (
@@ -19,8 +19,9 @@ export const Packages: React.FC = () => {
 
         <div className="w-full flex justify-center">
           <div className="w-full max-w-7xl min-h-[600px] text-stone-900 [color-scheme:light]">
-            <BSportPackagesWidget
+            <BSportWidget
               containerId="bsport-widget-pass"
+              variant="pass"
               className="w-full min-h-[600px]"
             />
           </div>
