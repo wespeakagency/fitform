@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Volume2, VolumeX } from 'lucide-react';
 
 const CAROUSEL_IMAGES = [
   "https://github.com/wespeakagency/imagenesweb_fitform/blob/main/1.png?raw=true",
@@ -8,6 +9,18 @@ const CAROUSEL_IMAGES = [
 
 export const About: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleVideoMute = () => {
+    if (!videoRef.current) return;
+    const next = !isVideoMuted;
+    videoRef.current.muted = next;
+    if (!next && videoRef.current.paused) {
+      videoRef.current.play().catch(() => {});
+    }
+    setIsVideoMuted(next);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -105,13 +118,25 @@ export const About: React.FC = () => {
           <div className="order-2 lg:order-1 relative group perspective-1000">
              <div className="absolute inset-0 bg-gradient-to-tr from-stone-200 to-stone-300 dark:from-stone-500/20 dark:to-white/10 blur-[80px] rounded-full opacity-40 transition-colors duration-700 pointer-events-none"></div>
              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl glass-panel-dark border-0 transform transition-transform duration-700 group-hover:rotate-y-2">
-                <img
-                  src="https://github.com/ryandoelsol/fitform/blob/Imagenes/Concepto%20FitForm.jpg?raw=true"
-                  alt="FitForm Space"
-                  loading="lazy"
-                  decoding="async"
+                <video
+                  ref={videoRef}
+                  src="/videos/el-espacio.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="FitForm Space"
                   className="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:scale-105 transition-all duration-1000 grayscale hover:grayscale-0"
                 />
+                <button
+                  type="button"
+                  onClick={toggleVideoMute}
+                  aria-label={isVideoMuted ? 'Activar sonido' : 'Silenciar'}
+                  className="absolute bottom-4 right-4 z-10 p-2.5 rounded-full bg-black/50 backdrop-blur-md text-white hover:bg-black/70 transition-colors"
+                >
+                  {isVideoMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                </button>
              </div>
           </div>
 
