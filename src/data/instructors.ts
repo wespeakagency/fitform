@@ -6,7 +6,7 @@ export const INSTRUCTORS: Instructor[] = [
     name: 'Stephanie',
     role: 'Fundadora',
     image: 'https://github.com/wespeakagency/imagenesweb_fitform/blob/main/Stephanie.jpg?raw=true',
-    bio: 'Fundadora de FITFORM, soy una mujer enamorada del movimiento, del poder de la mente y del equilibrio que se encuentra en el esfuerzo físico y la calma interior. FITFORM nació de esa pasión: de entender que el ejercicio puede ser una forma de meditación en movimiento y de conexión con uno mismo.\n\nCreo profundamente en que todos tenemos la capacidad de lograr lo que nos proponemos, si entrenamos no solo la fuerza física, sino también la mental y emocional. El cambio comienza adentro, y se refleja afuera.\n\nFundadora de FITFORM, soy una mujer enamorada del movimiento, del poder de la mente y del equilibrio que se encuentra en el esfuerzo físico y la calma interior. FITFORM nació de esa pasión: de entender que el ejercicio puede ser una forma de meditación en movimiento y de conexión con uno mismo.\n\nCreo profundamente en que todos tenemos la capacidad de lograr lo que nos proponemos, si entrenamos no solo la fuerza física, sino también la mental y emocional. El cambio comienza adentro, y se refleja afuera.',
+    bio: 'Fundadora de FITFORM, soy una mujer enamorada del movimiento, del poder de la mente y del equilibrio que se encuentra en el esfuerzo físico y la calma interior. FITFORM nació de esa pasión: de entender que el ejercicio puede ser una forma de meditación en movimiento y de conexión con uno mismo.\n\nCreo profundamente en que todos tenemos la capacidad de lograr lo que nos proponemos, si entrenamos no solo la fuerza física, sino también la mental y emocional. El cambio comienza adentro, y se refleja afuera.',
   },
   {
     id: 2,
