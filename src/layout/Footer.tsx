@@ -1,6 +1,9 @@
 import React from 'react';
 import { Instagram, Facebook } from 'lucide-react';
 import { useNavHandler } from '@/hooks/useNavHandler';
+import { MAIN_LINKS, RIGHT_GROUP_LINKS } from './Navbar/routes';
+
+const FOOTER_LINKS = [...MAIN_LINKS, ...RIGHT_GROUP_LINKS];
 
 const TikTokIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
@@ -35,10 +38,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
           <div>
             <h3 className="text-white font-bold mb-8">Navegación</h3>
             <ul className="space-y-4">
-              <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="hover:text-white transition-colors">Concepto</a></li>
-              <li><a href="#team" onClick={(e) => handleNavClick(e, '#team')} className="hover:text-white transition-colors">Instructores</a></li>
-              <li><a href="#pricing" onClick={(e) => handleNavClick(e, '#pricing')} className="hover:text-white transition-colors">Clases</a></li>
-              <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact')} className="hover:text-white transition-colors">Contacto</a></li>
+              {FOOTER_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
