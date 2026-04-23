@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 
 const CAROUSEL_IMAGES = [
-  "https://github.com/wespeakagency/imagenesweb_fitform/blob/main/1.png?raw=true",
-  "https://github.com/wespeakagency/imagenesweb_fitform/blob/main/2.png?raw=true",
-  "https://github.com/wespeakagency/imagenesweb_fitform/blob/main/3.2.png?raw=true"
+  "/images/carousel/1.webp",
+  "/images/carousel/2.webp",
+  "/images/carousel/3.webp",
 ];
 
 export const About: React.FC = () => {
