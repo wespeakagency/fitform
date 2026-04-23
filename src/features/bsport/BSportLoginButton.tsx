@@ -115,7 +115,7 @@ export const BSportLoginButton: React.FC<BSportLoginButtonProps> = ({
   // Determinar clases base según variante
   const getBaseClasses = () => {
     // Estilos mínimos con colores blancos para resaltar sobre fondo oscuro
-    const baseClasses = 'min-w-[120px] min-h-[40px] flex items-center justify-center relative z-50 [&_*]:!text-white [&_svg]:!fill-white [&_*]:!border-white hover:[&_*]:!text-stone-300 hover:[&_*]:!border-stone-300 transition-all cursor-pointer';
+    const baseClasses = 'min-w-[120px] min-h-[40px] flex items-center justify-center relative z-50 [&_*]:!text-white [&_*]:!uppercase [&_*]:!tracking-[0.2em] [&_svg]:!fill-white [&_*]:!border-white hover:[&_*]:!text-stone-300 hover:[&_*]:!border-stone-300 transition-all cursor-pointer';
     
     switch (variant) {
       case 'desktop':
