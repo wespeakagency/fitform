@@ -32,9 +32,10 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <div className="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
+      {/* Desktop: full pill navbar */}
+      <div className="hidden lg:flex fixed top-6 left-0 w-full z-50 justify-center px-4 pointer-events-none">
         <nav
-          className={`transition-all duration-700 ease-out flex justify-between items-center px-8 py-4 rounded-full ${
+          className={`pointer-events-auto transition-all duration-700 ease-out flex justify-between items-center px-8 py-4 rounded-full ${
             isPillOpaque
               ? 'glass-panel-dark w-full max-w-6xl shadow-2xl'
               : 'w-full max-w-7xl bg-transparent'
@@ -53,19 +54,33 @@ export const Navbar: React.FC = () => {
             isPillOpaque={isPillOpaque}
             onNavClick={handleNavClick}
           />
-
-          <div className="flex items-center lg:hidden z-50">
-            <button
-              className="text-fitform-navy dark:text-white p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-              aria-expanded={isMenuOpen}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
         </nav>
       </div>
+
+      {/* Mobile: two small floating FABs — logo + hamburger.
+          Each is its own fixed button so there's no full-width container
+          intercepting touches between them. */}
+      <Link
+        to="/"
+        onClick={handleLogoClick}
+        aria-label="Inicio"
+        className="lg:hidden fixed top-4 left-4 z-[1500] p-1.5 rounded-full bg-fitform-bone/80 dark:bg-fitform-obsidian/80 backdrop-blur-md shadow-lg cursor-pointer"
+      >
+        <img
+          src="https://i.postimg.cc/bwBqCCY7/Logo-fitform-png-(2).png"
+          alt="FitForm"
+          className="h-9 w-auto object-contain"
+        />
+      </Link>
+
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+        aria-expanded={isMenuOpen}
+        className="lg:hidden fixed top-4 right-4 z-[1500] p-3 rounded-full bg-fitform-bone/80 dark:bg-fitform-obsidian/80 backdrop-blur-md shadow-lg text-fitform-navy dark:text-white"
+      >
+        {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+      </button>
 
       <MobileMenu isOpen={isMenuOpen} onNavClick={handleNavClick} />
     </>

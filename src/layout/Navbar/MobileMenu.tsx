@@ -14,7 +14,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onNavClick }) =>
 
   return (
     <div
-      className={`fixed inset-0 z-40 bg-fitform-bone/95 dark:bg-fitform-obsidian/95 backdrop-blur-xl transform transition-transform duration-700 cubic-bezier(0.7, 0, 0.3, 1) ${
+      className={`fixed inset-0 z-[1400] bg-fitform-bone/95 dark:bg-fitform-obsidian/95 backdrop-blur-xl transform transition-transform duration-700 cubic-bezier(0.7, 0, 0.3, 1) ${
         isOpen ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
