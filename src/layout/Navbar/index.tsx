@@ -33,7 +33,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {/* Desktop: full pill navbar */}
-      <div className="hidden lg:flex fixed top-6 left-0 w-full z-50 justify-center px-4 pointer-events-none">
+      <div className="hidden xl:flex fixed top-6 left-0 w-full z-50 justify-center px-4 pointer-events-none">
         <nav
           className={`pointer-events-auto transition-all duration-700 ease-out flex justify-between items-center px-8 py-4 rounded-full ${
             isPillOpaque
@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
         to="/"
         onClick={handleLogoClick}
         aria-label="Inicio"
-        className="lg:hidden fixed top-4 left-4 z-[1500] p-1.5 rounded-full bg-fitform-bone/80 dark:bg-fitform-obsidian/80 backdrop-blur-md shadow-lg cursor-pointer"
+        className="xl:hidden fixed top-4 left-4 z-[1500] p-1.5 rounded-full bg-fitform-bone/80 dark:bg-fitform-obsidian/80 backdrop-blur-md shadow-lg cursor-pointer"
       >
         <img
           src="https://i.postimg.cc/bwBqCCY7/Logo-fitform-png-(2).png"
@@ -77,7 +77,7 @@ export const Navbar: React.FC = () => {
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
         aria-expanded={isMenuOpen}
-        className="lg:hidden fixed top-4 right-4 z-[1500] p-3 rounded-full bg-fitform-bone/80 dark:bg-fitform-obsidian/80 backdrop-blur-md shadow-lg text-fitform-navy dark:text-white"
+        className="xl:hidden fixed top-4 right-4 z-[1500] p-3 rounded-full bg-fitform-bone/80 dark:bg-fitform-obsidian/80 backdrop-blur-md shadow-lg text-fitform-navy dark:text-white"
       >
         {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
       </button>

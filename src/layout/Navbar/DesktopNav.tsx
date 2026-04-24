@@ -42,7 +42,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
   };
 
   return (
-    <div className="hidden lg:flex items-center space-x-8 xl:space-x-10">
+    <div className="hidden xl:flex items-center space-x-6 2xl:space-x-8">
       {MAIN_LINKS.map(renderLink)}
 
       <div className="flex items-center gap-4 border-l border-stone-200 dark:border-white/10 pl-6">
