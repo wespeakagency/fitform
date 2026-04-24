@@ -5,7 +5,7 @@ export const MyBookings: React.FC = () => {
   return (
     <section
       id="my-bookings"
-      className="scroll-mt-28 py-32 bg-stone-100 relative z-30"
+      className="scroll-mt-28 py-32 bg-stone-100 relative z-[47]"
     >
       <div className="container mx-auto px-6 relative">
         <div className="flex flex-col items-center mb-12">
@@ -18,7 +18,7 @@ export const MyBookings: React.FC = () => {
         </div>
 
         <div className="w-full flex justify-center">
-          <div className="w-full max-w-7xl min-h-[400px] md:min-h-[600px] text-stone-900 [color-scheme:light] overscroll-contain isolate">
+          <div className="w-full max-w-7xl min-h-[400px] md:min-h-[600px] text-stone-900 [color-scheme:light] overscroll-contain">
             <BSportWidget
               containerId="bsport-widget-897615"
               variant="consumerSpace"
