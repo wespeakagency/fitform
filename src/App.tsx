@@ -1,9 +1,29 @@
 import React, { useState } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, useLocation } from 'react-router-dom';
 import { Layout } from '@/layout/Layout';
 import { HomePage } from '@/pages/HomePage';
 import { InstructorsPage } from '@/pages/InstructorsPage';
 import { ThemeProvider } from '@/contexts/ThemeContext';
+
+// Keep-alive routing: both pages stay mounted across navigations and only
+// their visibility flips. This preserves the BSport widgets' DOM and internal
+// state when leaving and returning to '/', avoiding the multi-second
+// re-bootstrap that <Routes> caused by unmounting HomePage on every change.
+const PageSwitcher: React.FC = () => {
+  const { pathname } = useLocation();
+  const isInstructors = pathname === '/instructors';
+
+  return (
+    <>
+      <div hidden={isInstructors}>
+        <HomePage />
+      </div>
+      <div hidden={!isInstructors}>
+        <InstructorsPage />
+      </div>
+    </>
+  );
+};
 
 const App: React.FC = () => {
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
@@ -18,10 +38,7 @@ const App: React.FC = () => {
           isTermsOpen={isTermsOpen}
           setIsTermsOpen={setIsTermsOpen}
         >
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/instructors" element={<InstructorsPage />} />
-          </Routes>
+          <PageSwitcher />
         </Layout>
       </Router>
     </ThemeProvider>
