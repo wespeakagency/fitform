@@ -5,7 +5,7 @@ export const MyBookings: React.FC = () => {
   return (
     <section
       id="my-bookings"
-      className="scroll-mt-28 py-32 bg-stone-100 relative z-[47]"
+      className="scroll-mt-28 py-32 bg-stone-100 relative z-[46]"
     >
       <div className="container mx-auto px-6 relative">
         <div className="flex flex-col items-center mb-12">
