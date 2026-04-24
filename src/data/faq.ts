@@ -34,7 +34,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Cuál es nuestra política de cancelación?',
     answer:
-      'Puedes cambiar o cancelar tu clase hasta 10 horas antes del inicio sin penalización.\n\nCANCELACIÓN TARDÍA: Si cancelas con menos de 10 horas de anticipación, se tomará como una clase perdida dentro de tu paquete de clases contratado.\n\nNO SHOW: Si no cancelas y no te presentas, además de perder la clase se aplicará una penalización de $150 MXN.',
+      'Puedes cambiar o cancelar tu clase hasta 12 horas antes del inicio sin penalización.\n\nCANCELACIÓN TARDÍA: Si cancelas con menos de 12 horas de anticipación, se tomará como una clase perdida dentro de tu paquete de clases contratado.\n\nNO SHOW: Si no cancelas y no te presentas, además de perder la clase se aplicará una penalización de $150 MXN.',
   },
   {
     question: '¿Perderé mi lugar si llego tarde?',
@@ -44,7 +44,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Existe lista de espera?',
     answer:
-      'Sí. Puedes unirte a la lista de espera hasta 10 horas antes del inicio de la clase.\n\nEn la app, las clases con cupo lleno aparecerán como "Lista de espera". Si se libera un lugar con más de 10 horas de anticipación, se te asignará automáticamente y recibirás un correo de confirmación.\n\nSi no obtienes un lugar, la clase se acreditará en tu cuenta para uso futuro.\n\nImportante: Al unirte a la lista de espera aceptas tomar la clase si se libera un espacio. Si ya no deseas asistir, debes salirte de la lista con al menos 10 horas de anticipación. De lo contrario, aplicará la política de cancelación tardía.',
+      'Sí, puedes unirte a la lista de espera. Si se libera un lugar, se asigna automáticamente en orden de registro recibiendo un correo de confirmación.\n\nEn caso de no obtener un espacio, la clase se abonará a tu cuenta para que la uses después.\n\nImportante: al entrar a la lista de espera te comprometes a tomar la clase si se abre un lugar. Si ya no deseas asistir, debes salirte al menos 1 hora antes; de lo contrario, aplicará la política de cancelación tardía.',
   },
   {
     question: '¿Cómo puedo cancelar mi membresía mensual?',
