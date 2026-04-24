@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { INSTRUCTORS } from '@/data/instructors';
 import { InstructorCard, type InstructorCardHandle } from '@/components/InstructorCard';
+import { PageLayout } from '@/layout/PageLayout';
 
 export const InstructorsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -42,9 +43,7 @@ export const InstructorsPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 pb-20 px-6 container mx-auto relative z-10 min-h-screen">
-      <div className="absolute inset-0 bg-stone-50 dark:bg-stone-950 -z-10"></div>
-
+    <PageLayout>
       <button
         onClick={() => navigate('/')}
         className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 dark:hover:text-white mb-12 transition-colors"
@@ -76,6 +75,6 @@ export const InstructorsPage: React.FC = () => {
           />
         ))}
       </div>
-    </div>
+    </PageLayout>
   );
 };
