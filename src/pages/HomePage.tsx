@@ -13,7 +13,13 @@ import { Contact } from '@/sections/Contact';
 export const HomePage: React.FC = () => {
   return (
     <>
-      <Hero />
+      {/* Sticky wrapper: Hero pins at top while About rises over it with
+          rounded corners + shadow. The sticky lives here (composition), not
+          inside Hero itself, so Hero stays reusable in pages that don't
+          want the parallax. */}
+      <div className="lg:sticky lg:top-0 lg:z-0">
+        <Hero />
+      </div>
       <About />
       <Team />
       <Packages />
