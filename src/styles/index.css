@@ -36,6 +36,80 @@
   fill: #D6D3D1 !important;
 }
 
+/* BSport widget: force opaque surfaces.
+   The widget's default surface color is rgba(155,155,155,0.14) — a translucent
+   grey that blends with the page bg. Two problems it creates:
+
+   1. OVERLAYS (modal paper, dropdown menu): they appear OVER other content, so
+      the page shows through — confusing to read.
+   2. INLINE SURFACES in DARK mode (cards, filters, inputs, list items): on a
+      dark page bg the translucent grey becomes very dim, and the widget's
+      internal text (rgba(0,0,0,0.87)) is unreadable against it.
+
+   The widget itself has NO dark theme — the tenant admin (on pro.bsport.io)
+   configured ONE theme: light surfaces + dark text. We cannot flip text color
+   from here without rewriting the tenant theme. So the fix is: force white
+   surfaces to preserve the contrast contract the tenant set.
+
+   Specificity: BSport's own rules use `[id*="bsport-widget"] .cleanslate .bs-*`
+   with !important → specificity (0,3,0). We prefix with `body ` or `.dark ` to
+   outrank them independent of cascade order (BSport injects CSS at widget
+   mount, which is AFTER our bundle — specificity needs to win, not order). */
+
+/* 1. Overlays + triggers: white in both modes.
+   - Overlays (modal, dropdown menus, search autocomplete) appear over content — need opacity.
+   - Triggers (search, type/filter buttons, date picker) look like floating
+     chips against the page bg. When translucent they read inconsistent next
+     to the white dropdown menu they open. Force white for visual consistency. */
+body [id*="bsport-widget"] .cleanslate .bs-pack-details-dialog__card,
+body [id*="bsport-widget"] .cleanslate .bs-marketplace-filter__menu,
+body [id*="bsport-widget"] .cleanslate .bs-select__menu,
+body [id*="bsport-widget"] .cleanslate .bs-select__dropdown__list,
+body [id*="bsport-widget"] .cleanslate .bs-search__results__container,
+body [id*="bsport-widget"] .cleanslate .bs-search__container,
+body [id*="bsport-widget"] .cleanslate .bs-calendar-search__container,
+body [id*="bsport-widget"] .cleanslate .bs-select__button,
+body [id*="bsport-widget"] .cleanslate .bs-marketplace-filter,
+body [id*="bsport-widget"] .cleanslate .bs-marketplace-date-picker {
+  background-color: #FFFFFF !important;
+}
+
+/* Overlays only: add border + shadow for card-like appearance */
+body [id*="bsport-widget"] .cleanslate .bs-pack-details-dialog__card,
+body [id*="bsport-widget"] .cleanslate .bs-marketplace-filter__menu,
+body [id*="bsport-widget"] .cleanslate .bs-select__menu,
+body [id*="bsport-widget"] .cleanslate .bs-select__dropdown__list,
+body [id*="bsport-widget"] .cleanslate .bs-search__results__container {
+  border: 1px solid #D6D3D1 !important;
+  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Dropdown menus: hide the ~50ms position jump on open.
+   BSport's popper library positions the menu in a second frame — the first
+   render shows the menu in a default flow position (top-left of container),
+   then it "teleports" to sit below the trigger. We fade in to mask the jump. */
+body [id*="bsport-widget"] .cleanslate .bs-marketplace-filter__menu,
+body [id*="bsport-widget"] .cleanslate .bs-select__menu,
+body [id*="bsport-widget"] .cleanslate .bs-select__dropdown__list,
+body [id*="bsport-widget"] .cleanslate .bs-search__results__container {
+  animation: bs-menu-enter 180ms ease-out both !important;
+}
+
+@keyframes bs-menu-enter {
+  0% { opacity: 0; }
+  30% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* 2. Inline content surfaces: white ONLY in dark mode (in light mode the
+   translucent default reads fine against the bone/stone page bg). Cards and
+   list items are NOT triggers — in light mode their translucency gives nice
+   visual hierarchy with the page bg. */
+.dark body [id*="bsport-widget"] .cleanslate .bs-generic-card,
+.dark body [id*="bsport-widget"] .cleanslate .bs-offer-list-item {
+  background-color: #FFFFFF !important;
+}
+
 /* Custom scrollbar styles */
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
