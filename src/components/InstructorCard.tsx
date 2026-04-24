@@ -59,7 +59,7 @@ export const InstructorCard = forwardRef<InstructorCardHandle, InstructorCardPro
               alt={instructor.name}
               loading="lazy"
               decoding="async"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
+              className="w-full h-full object-cover transition-[transform,filter] duration-700 ease-out group-hover:scale-105 grayscale group-hover:grayscale-0"
             />
             <div className="absolute bottom-0 left-0 w-full p-6 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
               <p className="text-[10px] uppercase tracking-[0.2em] text-white/70 mb-2">

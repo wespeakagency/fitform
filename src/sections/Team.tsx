@@ -22,7 +22,7 @@ export const Team: React.FC = () => {
                     alt="FitForm Team"
                     loading="lazy"
                     decoding="async"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 grayscale group-hover:grayscale-0 z-10"
+                    className="absolute inset-0 w-full h-full object-cover transition-[transform,filter] duration-[1.5s] ease-out group-hover:scale-110 grayscale group-hover:grayscale-0 z-10"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-transparent to-transparent z-20 opacity-80"></div>
                 
