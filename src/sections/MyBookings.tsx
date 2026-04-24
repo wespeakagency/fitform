@@ -26,6 +26,23 @@ export const MyBookings: React.FC = () => {
             />
           </div>
         </div>
+
+        <div className="mt-10 flex justify-center">
+          <div className="max-w-3xl text-center text-stone-600 text-sm font-light leading-relaxed space-y-2">
+            <p>
+              Puedes cambiar o cancelar tu clase sin penalización hasta{' '}
+              <span className="text-stone-800">12 horas antes</span> de la clase.
+            </p>
+            <p>
+              Si cancelas con menos tiempo, la clase se contará como utilizada.
+            </p>
+            <p>
+              Si no te presentas y no cancelas, perderás la clase y se aplicará
+              una penalización de{' '}
+              <span className="text-stone-800">$150 MXN</span>.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
