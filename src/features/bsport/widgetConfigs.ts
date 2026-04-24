@@ -25,6 +25,11 @@ export const bsportWidgetConfigs = {
     fullScreenPopup: false,
     config: { pass: {} },
   },
+  subscription: {
+    widgetType: 'subscription',
+    fullScreenPopup: false,
+    config: { subscription: {} },
+  },
   calendar: {
     widgetType: 'calendar',
     fullScreenPopup: false,

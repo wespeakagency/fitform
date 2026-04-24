@@ -10,6 +10,7 @@ export const MAIN_LINKS: NavRoute[] = [
   { name: 'Concepto', href: '#about' },
   { name: 'Equipo', href: '#team' },
   { name: 'Precios', href: '#packages' },
+  { name: 'Membresías', href: '#memberships' },
   { name: 'Clases', href: '#pricing' },
   { name: 'Contacto', href: '#contact' },
 ];
