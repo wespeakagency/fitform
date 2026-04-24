@@ -1,8 +1,13 @@
 import { useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { scrollToSection } from '@/lib/scroll';
+import {
+  SECTION_WIDGET_CONTAINERS,
+  whenWidgetMounted,
+} from '@/features/bsport/widgetMountRegistry';
 
-const ROUTE_CHANGE_SCROLL_DELAY_MS = 300;
+const nextFrame = () =>
+  new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
 
 export function useNavHandler(onAfterClick?: () => void) {
   const location = useLocation();
@@ -14,14 +19,28 @@ export function useNavHandler(onAfterClick?: () => void) {
       e.preventDefault();
       const id = href.replace('#', '');
 
+      const performScroll = async () => {
+        // Yield once so React has committed any pending render (either the
+        // new route after navigate(), or the already-mounted home route)
+        // before we query the target element.
+        await nextFrame();
+
+        const widgetContainer = SECTION_WIDGET_CONTAINERS[id];
+        if (widgetContainer) {
+          await whenWidgetMounted(widgetContainer);
+          // One more frame so sibling widgets (which share the BSport script
+          // and mount within the same polling cycle) settle their height
+          // before we compute the scroll target.
+          await nextFrame();
+        }
+
+        scrollToSection(id);
+      };
+
       if (location.pathname !== '/') {
         navigate('/');
-        // React Router needs a tick to mount the home route before the
-        // section id is queryable.
-        setTimeout(() => scrollToSection(id), ROUTE_CHANGE_SCROLL_DELAY_MS);
-      } else {
-        scrollToSection(id);
       }
+      performScroll();
 
       onAfterClick?.();
     },

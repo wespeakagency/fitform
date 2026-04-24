@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { bsportWidgetConfigs, type BSportWidgetVariant } from './widgetConfigs';
+import { markWidgetMounted, markWidgetUnmounted } from './widgetMountRegistry';
 
 declare global {
   interface Window {
@@ -22,6 +23,21 @@ export function useBSportWidget(
   useEffect(() => {
     let isMounted = true;
     let mountTimeout: ReturnType<typeof setTimeout> | null = null;
+    let observer: MutationObserver | null = null;
+
+    const watchForCleanslate = (container: HTMLElement) => {
+      if (container.querySelector('.cleanslate')) {
+        markWidgetMounted(containerId);
+        return;
+      }
+      observer = new MutationObserver(() => {
+        if (!container.querySelector('.cleanslate')) return;
+        markWidgetMounted(containerId);
+        observer?.disconnect();
+        observer = null;
+      });
+      observer.observe(container, { childList: true, subtree: true });
+    };
 
     const injectScript = () => {
       if (document.getElementById(BSPORT_SCRIPT_ID)) return;
@@ -56,7 +72,10 @@ export function useBSportWidget(
       // .cleanslate is the wrapper BSport injects on mount — its presence
       // means the widget is already mounted and we'd double-render under
       // React StrictMode without this guard.
-      if (container.querySelector('.cleanslate')) return;
+      if (container.querySelector('.cleanslate')) {
+        markWidgetMounted(containerId);
+        return;
+      }
 
       container.innerHTML = '';
 
@@ -69,6 +88,7 @@ export function useBSportWidget(
           showFab: false,
           ...bsportWidgetConfigs[variant],
         });
+        watchForCleanslate(container);
       } catch (error) {
         console.error(
           `[BSportWidget] Mount error for '${variant}' on ${containerId}:`,
@@ -83,6 +103,11 @@ export function useBSportWidget(
     return () => {
       isMounted = false;
       if (mountTimeout) clearTimeout(mountTimeout);
+      if (observer) {
+        observer.disconnect();
+        observer = null;
+      }
+      markWidgetUnmounted(containerId);
       const container = document.getElementById(containerId);
       if (container) container.innerHTML = '';
     };
