@@ -4,6 +4,8 @@ import { useNavHandler } from '@/hooks/useNavHandler';
 import { MAIN_LINKS, RIGHT_GROUP_LINKS } from './Navbar/routes';
 
 const FOOTER_LINKS = [...MAIN_LINKS, ...RIGHT_GROUP_LINKS];
+const SOCIAL_LINK_CLASSES =
+  'p-2 border border-white/10 rounded-full text-stone-500 transition-colors hover:bg-white hover:text-fitform-obsidian hover:border-white cursor-pointer';
 
 const TikTokIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
@@ -56,9 +58,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
             <div>
                  <h3 className="text-white font-bold mb-8">Social</h3>
                  <div className="flex space-x-6">
-                  <a href="https://www.instagram.com/fitform.mx/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors p-2 border border-white/10 rounded-full hover:bg-white hover:text-black hover:border-white cursor-pointer"><Instagram className="w-4 h-4" /></a>
-                  <a href="https://www.facebook.com/profile.php?id=61574696534973" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors p-2 border border-white/10 rounded-full hover:bg-white hover:text-black hover:border-white cursor-pointer"><Facebook className="w-4 h-4" /></a>
-                  <a href="https://www.tiktok.com/@fitformpilates?_r=1&_t=ZS-95jpzpdEGd2" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="hover:text-white transition-colors p-2 border border-white/10 rounded-full hover:bg-white hover:text-black hover:border-white cursor-pointer"><TikTokIcon className="w-4 h-4" /></a>
+                  <a href="https://www.instagram.com/fitform.mx/" target="_blank" rel="noopener noreferrer" className={SOCIAL_LINK_CLASSES}><Instagram className="w-4 h-4" /></a>
+                  <a href="https://www.facebook.com/profile.php?id=61574696534973" target="_blank" rel="noopener noreferrer" className={SOCIAL_LINK_CLASSES}><Facebook className="w-4 h-4" /></a>
+                  <a href="https://www.tiktok.com/@fitformpilates?_r=1&_t=ZS-95jpzpdEGd2" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className={SOCIAL_LINK_CLASSES}><TikTokIcon className="w-4 h-4" /></a>
                 </div>
             </div>
             {/* 
