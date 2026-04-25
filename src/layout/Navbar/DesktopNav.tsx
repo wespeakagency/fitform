@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, ShoppingBag } from 'lucide-react';
 import { BSportWidget } from '@/features/bsport/BSportWidget';
 import { useTheme } from '@/contexts/ThemeContext';
 import { MAIN_LINKS, RIGHT_GROUP_LINKS, LOGIN_WIDGET_CLASSES, type NavRoute } from './routes';
@@ -16,22 +16,34 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
   onNavClick,
 }) => {
   const { isDark, toggleTheme } = useTheme();
+  const navMainLinks = MAIN_LINKS.filter((link) => link.href !== '#about');
 
   const isLinkActive = (href: string) => activeSection === href.replace('#', '');
 
   const renderLink = (link: NavRoute) => {
     const active = isLinkActive(link.href);
+    const isShopLink = link.href === '#shop';
     const baseText = isPillOpaque ? 'text-stone-700 dark:text-white/70' : 'text-stone-700 dark:text-white/70';
     const activeText = active ? 'text-fitform-navy dark:text-white' : baseText;
+
     return (
       <a
-        key={link.name}
+        key={link.href}
         href={link.href}
         onClick={(e) => onNavClick(e, link.href)}
         aria-current={active ? 'page' : undefined}
-        className={`text-[10px] uppercase tracking-[0.2em] font-medium transition-colors relative group cursor-pointer font-sans whitespace-nowrap hover:text-fitform-navy dark:hover:text-white ${activeText}`}
+        aria-label={isShopLink ? link.name : undefined}
+        title={isShopLink ? link.name : undefined}
+        className={`inline-flex items-center justify-center text-[10px] uppercase tracking-[0.2em] font-medium transition-colors relative group cursor-pointer font-sans whitespace-nowrap hover:text-fitform-navy dark:hover:text-white ${activeText}`}
       >
-        {link.name}
+        {isShopLink ? (
+          <>
+            <ShoppingBag className="w-4 h-4" aria-hidden="true" />
+            <span className="sr-only">{link.name}</span>
+          </>
+        ) : (
+          link.name
+        )}
         <span
           className={`absolute -bottom-2 left-0 w-full h-[1px] bg-fitform-navy dark:bg-fitform-teal origin-left transition-transform duration-300 ${
             active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
@@ -43,7 +55,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
 
   return (
     <div className="hidden xl:flex items-center space-x-6 2xl:space-x-8">
-      {MAIN_LINKS.map(renderLink)}
+      {navMainLinks.map(renderLink)}
 
       <div className="flex items-center gap-4 border-l border-stone-200 dark:border-white/10 pl-6">
         {RIGHT_GROUP_LINKS.map(renderLink)}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, ShoppingBag } from 'lucide-react';
 import { BSportWidget } from '@/features/bsport/BSportWidget';
 import { useTheme } from '@/contexts/ThemeContext';
 import { MAIN_LINKS, RIGHT_GROUP_LINKS, LOGIN_WIDGET_CLASSES } from './routes';
@@ -11,6 +11,7 @@ interface MobileMenuProps {
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onNavClick }) => {
   const { isDark, toggleTheme } = useTheme();
+  const navMainLinks = MAIN_LINKS.filter((link) => link.href !== '#about');
 
   return (
     <div
@@ -19,9 +20,9 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onNavClick }) =>
       }`}
     >
       <div className="flex flex-col items-center justify-center h-screen gap-6">
-        {MAIN_LINKS.map((link) => (
+        {navMainLinks.map((link) => (
           <a
-            key={link.name}
+            key={link.href}
             href={link.href}
             onClick={(e) => onNavClick(e, link.href)}
             className="text-3xl font-display font-light tracking-tight text-fitform-navy dark:text-white hover:text-fitform-teal transition-colors"
@@ -32,12 +33,21 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onNavClick }) =>
 
         {RIGHT_GROUP_LINKS.map((link) => (
           <a
-            key={link.name}
+            key={link.href}
             href={link.href}
             onClick={(e) => onNavClick(e, link.href)}
-            className="text-3xl font-display font-light tracking-tight text-fitform-navy dark:text-white hover:text-fitform-teal transition-colors"
+            aria-label={link.href === '#shop' ? link.name : undefined}
+            title={link.href === '#shop' ? link.name : undefined}
+            className="inline-flex items-center justify-center text-3xl font-display font-light tracking-tight text-fitform-navy dark:text-white hover:text-fitform-teal transition-colors"
           >
-            {link.name}
+            {link.href === '#shop' ? (
+              <>
+                <ShoppingBag className="w-8 h-8" aria-hidden="true" />
+                <span className="sr-only">{link.name}</span>
+              </>
+            ) : (
+              link.name
+            )}
           </a>
         ))}
 
