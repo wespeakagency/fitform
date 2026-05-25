@@ -17,4 +17,4 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children, className = ''
       {children}
     </div>
   );
-};
+}; 
