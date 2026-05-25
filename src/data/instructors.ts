@@ -91,7 +91,7 @@ export const INSTRUCTORS: Instructor[] = [
   {
     id: 15,
     name: 'Ana',
-    role: 'Head Coach',
+    role: 'Coach',
     image: '/images/instructors/ana.webp',
     bio: 'Desde siempre el movimiento ha sido parte de mi vida. Lo que más me inspira no es solo el ejercicio en sí, sino la sensación de bienestar, claridad y conexión que deja después.\n\nCreo en el poder del movimiento consciente: en entrenar no solo el cuerpo, sino también la mente. Para mí, moverse es una forma de meditación activa, de equilibrio y de reconexión contigo misma.',
   },
