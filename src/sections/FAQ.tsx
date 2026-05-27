@@ -15,11 +15,11 @@ export const FAQ: React.FC = () => {
     return (
       <div key={globalIndex} className="glass-panel px-6 md:px-8 rounded-2xl transition-all duration-300 hover:bg-white dark:hover:bg-white/5">
         <button
-          className="w-full py-6 flex justify-between items-center text-left gap-4"
+          className="flex w-full min-w-0 items-start justify-between gap-4 py-6 text-left"
           onClick={() => setOpenIndex(isOpen ? null : globalIndex)}
           aria-expanded={isOpen}
         >
-          <span className={`text-sm font-medium tracking-wide transition-colors ${isOpen ? 'text-stone-900 dark:text-white' : 'text-stone-500 dark:text-stone-400'}`}>
+          <span className={`min-w-0 break-words text-sm font-medium tracking-wide transition-colors ${isOpen ? 'text-stone-900 dark:text-white' : 'text-stone-500 dark:text-stone-400'}`}>
             {faq.question}
           </span>
           <span className={`shrink-0 p-2 rounded-full border transition-all duration-300 ${
@@ -37,9 +37,9 @@ export const FAQ: React.FC = () => {
           }`}
         >
           <div className="overflow-hidden">
-            <p className={`text-sm text-stone-600 dark:text-stone-400 leading-relaxed font-light ${isOpen ? 'pb-8' : ''}`}>
+            <div className={`break-words whitespace-pre-line text-sm font-light leading-relaxed text-stone-600 [overflow-wrap:anywhere] dark:text-stone-400 ${isOpen ? 'pb-8' : ''}`}>
               {faq.answer}
-            </p>
+            </div>
           </div>
         </div>
       </div>

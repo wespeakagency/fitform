@@ -39,7 +39,8 @@ export const MyBookings: React.FC = () => {
             <p>
               Si no te presentas y no cancelas, perderás la clase y se aplicará
               una penalización de{' '}
-              <span className="text-stone-800">$150 MXN</span>.
+              <span className="text-stone-800">$75 hasta $150 MXN</span>{' '}
+              dependiendo tu paquete o membresía.
             </p>
           </div>
         </div>

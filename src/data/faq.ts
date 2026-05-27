@@ -34,7 +34,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Cuál es nuestra política de cancelación?',
     answer:
-      'Puedes cambiar o cancelar tu clase hasta 12 horas antes del inicio sin penalización.\n\nCANCELACIÓN TARDÍA: Si cancelas con menos de 12 horas de anticipación, se tomará como una clase perdida dentro de tu paquete de clases contratado.\n\nNO SHOW: Si no cancelas y no te presentas, además de perder la clase se aplicará una penalización de $150 MXN.',
+      'Puedes cambiar o cancelar tu clase hasta 12 horas antes del inicio sin penalización.\n\nCANCELACIÓN TARDÍA: Si cancelas con menos de 12 horas de anticipación:\nClientes con paquetes\nPierden su clase/crédito\nNO se cobra fee adicional\n\nClientes con membresías ilimitadas y membresías de socio\nFee de cancelación tardía: $100\n\nNO SHOW: Si no cancelas y no te presentas, además de perder la clase se aplicará una penalización:\nClientes con paquetes\nPierden su clase/crédito\nFee de $75\n\nClientes ilimitados y membresías de socio\nFee de $150',
   },
   {
     question: '¿Perderé mi lugar si llego tarde?',
