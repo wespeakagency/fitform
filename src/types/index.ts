@@ -31,6 +31,29 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface PolicyLink {
+  href: string;
+  label: string;
+}
+
+export interface PolicyParagraph {
+  emphasis?: string;
+  separator?: ':' | '';
+  text: string;
+  link?: PolicyLink;
+  textAfterLink?: string;
+}
+
+export interface PolicySection {
+  title: string;
+  paragraphs: PolicyParagraph[];
+}
+
+export interface PolicyContent {
+  intro?: string;
+  sections: PolicySection[];
+}
+
 export interface Instructor {
   id: number;
   name: string;
