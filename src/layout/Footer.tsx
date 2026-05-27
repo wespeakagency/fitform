@@ -63,18 +63,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
                   <a href="https://www.tiktok.com/@fitformpilates?_r=1&_t=ZS-95jpzpdEGd2" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className={SOCIAL_LINK_CLASSES}><TikTokIcon className="w-4 h-4" /></a>
                 </div>
             </div>
-            {/* 
-              NOTA: Enlaces de descarga de apps temporalmente ocultos.
-              Motivo: Nos dieron de baja de las tiendas de aplicaciones (App Store y Google Play) temporalmente.
-              Fecha de ocultamiento: 20/04/2026
-              Se restaurarán cuando se resuelva la situación con las tiendas.
-            */}
-            {/* 
             <div className="mt-8 md:mt-0">
-                 <a href="https://apps.apple.com/us/app/fitform/id6743446999" target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-white/20 py-3 rounded-full hover:bg-white hover:text-black transition-all mb-3">Download iOS</a>
-                 <a href="https://play.google.com/store/apps/details?id=fitform.android.fitcoapp.net%20%EF%BF%BC" target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-white/20 py-3 rounded-full hover:bg-white hover:text-black transition-all">Download Android</a>
+                 <a href="https://apps.apple.com/us/app/fitform/id6765679829" target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-white/20 py-3 rounded-full hover:bg-white hover:text-black transition-all mb-3">Download iOS</a>
+                 {/* <a href="https://play.google.com/store/apps/details?id=fitform.android.fitcoapp.net%20%EF%BF%BC" target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-white/20 py-3 rounded-full hover:bg-white hover:text-black transition-all">Download Android</a> */}
             </div>
-            */}
           </div>
         </div>
 
