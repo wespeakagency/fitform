@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HashRouter as Router, useLocation } from 'react-router-dom';
 import { Layout } from '@/layout/Layout';
 import { HomePage } from '@/pages/HomePage';
 import { InstructorsPage } from '@/pages/InstructorsPage';
 import { ThemeProvider } from '@/contexts/ThemeContext';
+import { trackTikTokPageView } from '@/lib/tiktokPixel';
 
 // Keep-alive routing: both pages stay mounted across navigations and only
 // their visibility flips. This preserves the BSport widgets' DOM and internal
@@ -25,6 +26,16 @@ const PageSwitcher: React.FC = () => {
   );
 };
 
+const TikTokPageTracker: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    trackTikTokPageView(`${location.pathname}${location.search}`);
+  }, [location.pathname, location.search]);
+
+  return null;
+};
+
 const App: React.FC = () => {
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [isTermsOpen, setIsTermsOpen] = useState(false);
@@ -32,6 +43,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider>
       <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <TikTokPageTracker />
         <Layout
           isPrivacyOpen={isPrivacyOpen}
           setIsPrivacyOpen={setIsPrivacyOpen}
