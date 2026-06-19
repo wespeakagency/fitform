@@ -2,7 +2,7 @@ import React from 'react';
 import { Sun, Moon, ShoppingBag } from 'lucide-react';
 import { BSportWidget } from '@/features/bsport/BSportWidget';
 import { useTheme } from '@/contexts/ThemeContext';
-import { trackEvent } from '@tiktok/trackEvent';
+import { trackEvent, trackEventOncePerSession } from '@tiktok/trackEvent';
 import { MAIN_LINKS, RIGHT_GROUP_LINKS, LOGIN_WIDGET_CLASSES, type NavRoute } from './routes';
 
 interface DesktopNavProps {
@@ -19,7 +19,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
   const { isDark, toggleTheme } = useTheme();
   const navMainLinks = MAIN_LINKS.filter((link) => link.href !== '#about');
   const handleLeadClick = () => {
-    void trackEvent('Lead', {
+    void trackEventOncePerSession('lead:bsport-login', 'Lead', {
       content_name: 'BSport login',
       content_type: 'member_auth',
       page_section: 'navbar',

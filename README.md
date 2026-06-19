@@ -26,10 +26,16 @@ This project sends server-side TikTok conversion events through `POST /api/track
 ### What `/api/track` does
 
 - Receives frontend events from the Vite app
-- Enriches them with request IP + browser user agent
+- Derives request IP + browser user agent from the serverless request headers
 - Builds a TikTok Events API v1.3 payload
 - Sends the payload to `https://business-api.tiktok.com/open_api/v1.3/event/track/`
 - Returns TikTok's response and surfaces errors clearly
+
+### Payload notes
+
+- `event_source_id` is the canonical Pixel ID field sent to TikTok
+- `properties.custom_data.pixel_code` is also mirrored in the payload for internal traceability
+- `event_id` is generated per event and returned by `/api/track`
 
 ### Environment variables
 
@@ -48,12 +54,13 @@ Reference values live in `.env.example`. Real secrets must stay only in local/Ve
   - `src/sections/Memberships.tsx`
   - `src/sections/Pricing.tsx`
   - `src/sections/Shop.tsx`
+  - Fires once per section per browser session when that section becomes visible
 - `Search`
   - `src/hooks/useTikTokBsportSearchTracking.ts`
   - Best-effort tracking for BSport search inputs when the widget renders searchable inputs
 - `Contact`
   - `src/sections/Contact.tsx`
-  - Fires on email, phone, and WhatsApp contact intent
+  - Fires on email, phone, and WhatsApp contact intent (not form submission success)
 - `ClickButton`
   - `src/sections/Hero.tsx`
   - `src/layout/Navbar/DesktopNav.tsx`
@@ -63,6 +70,7 @@ Reference values live in `.env.example`. Real secrets must stay only in local/Ve
   - `src/layout/Navbar/DesktopNav.tsx`
   - `src/layout/Navbar/MobileMenu.tsx`
   - Current implementation uses entry into the BSport auth funnel as the lead proxy because the site does not have a first-party lead form/newsletter yet
+  - Deduplicated once per browser session
 
 ### Validation flow
 

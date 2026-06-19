@@ -65,11 +65,25 @@ const sanitizeValue = (value: TikTokEventValue | undefined): TikTokEventValue | 
   return value;
 };
 
+const buildCustomData = (value: TikTokEventValue | undefined, pixelId: string): TikTokEventProperties => {
+  if (isRecord(value)) {
+    return {
+      ...value,
+      pixel_code: pixelId,
+    };
+  }
+
+  return {
+    pixel_code: pixelId,
+  };
+};
+
 const buildProperties = (
   eventName: BuildTikTokPayloadInput['event'],
   pixelId: string,
   params: TikTokEventProperties = {},
 ): TikTokEventProperties | undefined => {
+  const normalizedPixelId = pixelId.trim();
   const properties = Object.entries(params).reduce<TikTokEventProperties>(
     (accumulator, [key, value]) => {
       if (RESERVED_KEYS.has(key)) return accumulator;
@@ -96,9 +110,7 @@ const buildProperties = (
     properties.query = properties.query ?? properties.search_string ?? properties.content_name;
   }
 
-  if (properties.contents !== undefined && properties.custom_data === undefined) {
-    properties.custom_data = { pixel_code: pixelId };
-  }
+  properties.custom_data = buildCustomData(properties.custom_data, normalizedPixelId);
 
   return Object.keys(properties).length > 0 ? properties : undefined;
 };
@@ -118,12 +130,14 @@ export function buildTikTokPayload({
   params = {},
   test_event_code,
 }: BuildTikTokPayloadInput): TikTokEventPayload {
-  const properties = buildProperties(event, pixelId, params);
+  const normalizedPixelId = pixelId.trim();
+  const normalizedTestEventCode = test_event_code?.trim();
+  const properties = buildProperties(event, normalizedPixelId, params);
 
   const payload = {
     event_source: 'web' as const,
-    event_source_id: pixelId,
-    ...(test_event_code ? { test_event_code } : {}),
+    event_source_id: normalizedPixelId,
+    ...(normalizedTestEventCode ? { test_event_code: normalizedTestEventCode } : {}),
     data: [
       {
         event,

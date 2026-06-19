@@ -6,9 +6,6 @@ const getCurrentUrl = (): string =>
 const getReferrer = (): string | undefined =>
   typeof document === 'undefined' || !document.referrer ? undefined : document.referrer;
 
-const getUserAgent = (): string =>
-  typeof navigator === 'undefined' ? 'unknown' : navigator.userAgent;
-
 const getTtclid = (): string | undefined => {
   if (typeof window === 'undefined') return undefined;
 
@@ -24,16 +21,27 @@ const createEventId = (): string => {
   return `tt-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 };
 
+const SESSION_EVENT_PREFIX = 'tiktok-session-event:';
+
+const getSessionStorage = (): Storage | null => {
+  if (typeof window === 'undefined') return null;
+
+  try {
+    return window.sessionStorage;
+  } catch {
+    return null;
+  }
+};
+
 export async function trackEvent(
   eventName: TikTokEventName,
   params: TikTokEventProperties = {},
-): Promise<void> {
-  if (typeof window === 'undefined') return;
+): Promise<boolean> {
+  if (typeof window === 'undefined') return false;
 
   const body: TikTokTrackRequestBody = {
     event: eventName,
     url: getCurrentUrl(),
-    user_agent: getUserAgent(),
     referrer: getReferrer(),
     ttclid: getTtclid(),
     event_id: createEventId(),
@@ -52,8 +60,33 @@ export async function trackEvent(
 
     if (!response.ok) {
       console.warn('[TikTok] /api/track responded with status', response.status);
+      return false;
     }
+
+    return true;
   } catch (error) {
     console.warn('[TikTok] Event tracking failed without blocking UX.', error);
+    return false;
   }
+}
+
+export async function trackEventOncePerSession(
+  sessionKey: string,
+  eventName: TikTokEventName,
+  params: TikTokEventProperties = {},
+): Promise<boolean> {
+  const storage = getSessionStorage();
+  const storageKey = `${SESSION_EVENT_PREFIX}${sessionKey}`;
+
+  if (storage?.getItem(storageKey) === '1') {
+    return false;
+  }
+
+  const tracked = await trackEvent(eventName, params);
+
+  if (tracked) {
+    storage?.setItem(storageKey, '1');
+  }
+
+  return tracked;
 }

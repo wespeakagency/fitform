@@ -1,9 +1,15 @@
-export type TikTokEventName =
-  | 'ViewContent'
-  | 'Search'
-  | 'Contact'
-  | 'ClickButton'
-  | 'Lead';
+export const TIKTOK_EVENT_NAMES = [
+  'ViewContent',
+  'Search',
+  'Contact',
+  'ClickButton',
+  'Lead',
+] as const;
+
+export type TikTokEventName = (typeof TIKTOK_EVENT_NAMES)[number];
+
+export const isTikTokEventName = (value: string): value is TikTokEventName =>
+  TIKTOK_EVENT_NAMES.includes(value as TikTokEventName);
 
 export type TikTokEventPrimitive = string | number | boolean | null;
 export type TikTokEventValue =
@@ -16,8 +22,6 @@ export type TikTokEventProperties = Record<string, TikTokEventValue | undefined>
 export interface TikTokTrackRequestBody extends TikTokEventProperties {
   event: TikTokEventName;
   url: string;
-  user_agent: string;
-  ip?: string;
   referrer?: string;
   ttclid?: string;
   event_id?: string;

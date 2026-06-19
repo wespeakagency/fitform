@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { trackEvent } from '@tiktok/trackEvent';
+import { trackEventOncePerSession } from '@tiktok/trackEvent';
 
 interface UseTikTokViewContentOptions {
   contentName: string;
@@ -27,7 +27,7 @@ export function useTikTokViewContent({
         if (!entry?.isIntersecting || hasTrackedRef.current) return;
 
         hasTrackedRef.current = true;
-        void trackEvent('ViewContent', {
+        void trackEventOncePerSession(`view-content:home:${sectionId}`, 'ViewContent', {
           content_name: contentName,
           content_type: contentType,
           page_section: sectionId,
