@@ -1,9 +1,16 @@
 import React from 'react';
 import { BSportWidget } from '@/features/bsport/BSportWidget';
+import { useTikTokViewContent } from '@/hooks/useTikTokViewContent';
 
 export const Packages: React.FC = () => {
+  const sectionRef = useTikTokViewContent({
+    contentName: 'Paquetes',
+    sectionId: 'packages',
+  });
+
   return (
     <section
+      ref={sectionRef}
       id="packages"
       className="scroll-mt-28 py-32 bg-stone-100 relative z-[49]"
     >

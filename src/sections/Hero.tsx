@@ -1,8 +1,18 @@
 import React from 'react';
 import { Button } from '@/components/Button';
 import { scrollToSection } from '@/lib/scroll';
+import { trackEvent } from '@tiktok/trackEvent';
 
 export const Hero: React.FC = () => {
+  const handleReserveClick = () => {
+    void trackEvent('ClickButton', {
+      content_name: 'Reservar Clase',
+      content_type: 'hero_cta',
+      destination_url: '#pricing',
+      page_section: 'hero',
+    });
+  };
+
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-fitform-bone dark:bg-fitform-obsidian transition-colors duration-700">
       {/* Background with animated gradients - Brand Colors */}
@@ -41,6 +51,7 @@ export const Hero: React.FC = () => {
             href="#pricing"
             onClick={(e) => {
               e.preventDefault();
+              handleReserveClick();
               scrollToSection('pricing');
             }}
           >

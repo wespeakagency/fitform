@@ -2,6 +2,7 @@ import React from 'react';
 import { Sun, Moon, ShoppingBag } from 'lucide-react';
 import { BSportWidget } from '@/features/bsport/BSportWidget';
 import { useTheme } from '@/contexts/ThemeContext';
+import { trackEvent } from '@tiktok/trackEvent';
 import { MAIN_LINKS, RIGHT_GROUP_LINKS, LOGIN_WIDGET_CLASSES, type NavRoute } from './routes';
 
 interface DesktopNavProps {
@@ -17,6 +18,23 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
 }) => {
   const { isDark, toggleTheme } = useTheme();
   const navMainLinks = MAIN_LINKS.filter((link) => link.href !== '#about');
+  const handleLeadClick = () => {
+    void trackEvent('Lead', {
+      content_name: 'BSport login',
+      content_type: 'member_auth',
+      page_section: 'navbar',
+      source_variant: 'desktop',
+    });
+  };
+
+  const handleReserveClick = () => {
+    void trackEvent('ClickButton', {
+      content_name: 'Reservar',
+      content_type: 'navbar_cta',
+      destination_url: '#pricing',
+      page_section: 'navbar',
+    });
+  };
 
   const isLinkActive = (href: string) => activeSection === href.replace('#', '');
 
@@ -68,16 +86,21 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
           {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </button>
 
-        <BSportWidget
-          containerId="bsport-login-desktop"
-          variant="loginButton"
-          className={LOGIN_WIDGET_CLASSES}
-        />
+        <div onClick={handleLeadClick}>
+          <BSportWidget
+            containerId="bsport-login-desktop"
+            variant="loginButton"
+            className={LOGIN_WIDGET_CLASSES}
+          />
+        </div>
       </div>
 
       <a
         href="#pricing"
-        onClick={(e) => onNavClick(e, '#pricing')}
+        onClick={(e) => {
+          handleReserveClick();
+          onNavClick(e, '#pricing');
+        }}
         className="bg-fitform-navy text-white dark:bg-white dark:text-fitform-obsidian px-6 py-2.5 text-[10px] uppercase tracking-[0.2em] font-bold rounded-full hover:bg-stone-700 dark:hover:bg-fitform-stone transition-colors font-display shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
       >
         Reservar

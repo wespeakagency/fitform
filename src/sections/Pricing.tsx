@@ -1,9 +1,16 @@
 import React from 'react';
 import { BSportWidget } from '@/features/bsport/BSportWidget';
+import { useTikTokViewContent } from '@/hooks/useTikTokViewContent';
 
 export const Pricing: React.FC = () => {
+  const sectionRef = useTikTokViewContent({
+    contentName: 'Clases',
+    sectionId: 'pricing',
+  });
+
   return (
     <section
+      ref={sectionRef}
       id="pricing"
       className="scroll-mt-28 py-32 bg-stone-50 dark:bg-stone-950 relative z-[47] transition-colors duration-700"
     >

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Instagram, Facebook } from 'lucide-react';
 import { useNavHandler } from '@/hooks/useNavHandler';
-import { trackTikTokEvent } from '@/lib/tiktokPixel';
+import { trackEvent } from '@tiktok/trackEvent';
 import { MAIN_LINKS, RIGHT_GROUP_LINKS } from './Navbar/routes';
 
 const FOOTER_LINKS = [...MAIN_LINKS, ...RIGHT_GROUP_LINKS];
@@ -23,12 +23,21 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) => {
   const handleNavClick = useNavHandler();
   const handleTikTokClick = () => {
-    trackTikTokEvent('ClickButton', {
+    void trackEvent('ClickButton', {
       content_name: 'TikTok',
       content_type: 'social_link',
       description: 'Footer TikTok icon click',
       destination_url: TIKTOK_URL,
       page_section: 'footer',
+    });
+  };
+
+  const handleIosClick = () => {
+    void trackEvent('ClickButton', {
+      content_name: 'Download iOS',
+      content_type: 'app_download',
+      page_section: 'footer',
+      destination_url: 'https://apps.apple.com/us/app/fitform/id6765679829',
     });
   };
 
@@ -76,7 +85,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy, onOpenTerms }) =>
                 </div>
             </div>
             <div className="mt-8 md:mt-0">
-                 <a href="https://apps.apple.com/us/app/fitform/id6765679829" target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-white/20 py-3 rounded-full hover:bg-white hover:text-black transition-all mb-3">Download iOS</a>
+                 <a href="https://apps.apple.com/us/app/fitform/id6765679829" target="_blank" rel="noopener noreferrer" onClick={handleIosClick} className="block w-full text-center border border-white/20 py-3 rounded-full hover:bg-white hover:text-black transition-all mb-3">Download iOS</a>
                  {/* <a href="https://play.google.com/store/apps/details?id=fitform.android.fitcoapp.net%20%EF%BF%BC" target="_blank" rel="noopener noreferrer" className="block w-full text-center border border-white/20 py-3 rounded-full hover:bg-white hover:text-black transition-all">Download Android</a> */}
             </div>
           </div>

@@ -9,8 +9,11 @@ import { Shop } from '@/sections/Shop';
 import { Team } from '@/sections/Team';
 import { FAQ } from '@/sections/FAQ';
 import { Contact } from '@/sections/Contact';
+import { useTikTokBsportSearchTracking } from '@/hooks/useTikTokBsportSearchTracking';
 
 export const HomePage: React.FC = () => {
+  useTikTokBsportSearchTracking();
+
   return (
     <>
       {/* Sticky wrapper: Hero pins at top while About rises over it with

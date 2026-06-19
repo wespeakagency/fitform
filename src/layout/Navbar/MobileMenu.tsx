@@ -2,6 +2,7 @@ import React from 'react';
 import { Sun, Moon, ShoppingBag } from 'lucide-react';
 import { BSportWidget } from '@/features/bsport/BSportWidget';
 import { useTheme } from '@/contexts/ThemeContext';
+import { trackEvent } from '@tiktok/trackEvent';
 import { MAIN_LINKS, RIGHT_GROUP_LINKS, LOGIN_WIDGET_CLASSES } from './routes';
 
 interface MobileMenuProps {
@@ -12,6 +13,23 @@ interface MobileMenuProps {
 export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onNavClick }) => {
   const { isDark, toggleTheme } = useTheme();
   const navMainLinks = MAIN_LINKS.filter((link) => link.href !== '#about');
+  const handleLeadClick = () => {
+    void trackEvent('Lead', {
+      content_name: 'BSport login',
+      content_type: 'member_auth',
+      page_section: 'mobile_menu',
+      source_variant: 'mobile',
+    });
+  };
+
+  const handleReserveClick = () => {
+    void trackEvent('ClickButton', {
+      content_name: 'Reservar',
+      content_type: 'mobile_menu_cta',
+      destination_url: '#pricing',
+      page_section: 'mobile_menu',
+    });
+  };
 
   return (
     <div
@@ -53,13 +71,16 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onNavClick }) =>
 
         <a
           href="#pricing"
-          onClick={(e) => onNavClick(e, '#pricing')}
+          onClick={(e) => {
+            handleReserveClick();
+            onNavClick(e, '#pricing');
+          }}
           className="mt-4 bg-fitform-navy text-white dark:bg-white dark:text-fitform-obsidian px-10 py-4 text-xs uppercase tracking-[0.3em] font-bold rounded-full hover:bg-stone-700 dark:hover:bg-fitform-stone transition-colors font-display shadow-lg"
         >
           Reservar
         </a>
 
-        <div className="flex justify-center w-full mt-2">
+        <div className="flex justify-center w-full mt-2" onClick={handleLeadClick}>
           <BSportWidget
             containerId="bsport-login-mobile"
             variant="loginButton"

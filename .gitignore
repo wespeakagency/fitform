@@ -12,6 +12,8 @@ dist
 dist-ssr
 dist */
 *.local
+.env
+.env.local
 
 # Build artifacts
 *.zip

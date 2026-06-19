@@ -1,8 +1,17 @@
 import React from 'react';
 import { MapPin, Mail, Phone, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/Button';
+import { trackEvent } from '@tiktok/trackEvent';
 
 export const Contact: React.FC = () => {
+  const trackContactIntent = (channel: 'email' | 'phone' | 'whatsapp') => {
+    void trackEvent('Contact', {
+      content_name: channel,
+      content_type: 'contact_intent',
+      page_section: 'contact',
+    });
+  };
+
   return (
     <section id="contact" className="scroll-mt-28 py-32 bg-white dark:bg-stone-950 relative z-30 transition-colors duration-700">
       <div className="container mx-auto px-6">
@@ -40,7 +49,11 @@ export const Contact: React.FC = () => {
                 <h4 className="flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-stone-900 dark:text-white mb-2">
                   <Mail className="w-4 h-4" /> Correo
                 </h4>
-                <a href="mailto:contacto@fitform.mx" className="text-stone-600 dark:text-stone-400 font-light pl-7 hover:text-stone-900 dark:hover:text-white transition-colors">
+                <a
+                  href="mailto:contacto@fitform.mx"
+                  onClick={() => trackContactIntent('email')}
+                  className="text-stone-600 dark:text-stone-400 font-light pl-7 hover:text-stone-900 dark:hover:text-white transition-colors"
+                >
                   contacto@fitform.mx
                 </a>
               </div>
@@ -49,13 +62,22 @@ export const Contact: React.FC = () => {
                 <h4 className="flex items-center gap-3 text-sm font-bold uppercase tracking-widest text-stone-900 dark:text-white mb-2">
                   <Phone className="w-4 h-4" /> Teléfono / WhatsApp
                 </h4>
-                <a href="tel:+525631372510" className="text-stone-600 dark:text-stone-400 font-light pl-7 hover:text-stone-900 dark:hover:text-white transition-colors">
+                <a
+                  href="tel:+525631372510"
+                  onClick={() => trackContactIntent('phone')}
+                  className="text-stone-600 dark:text-stone-400 font-light pl-7 hover:text-stone-900 dark:hover:text-white transition-colors"
+                >
                   +52 56 3137 2510
                 </a>
               </div>
             </div>
 
-            <Button onClick={() => window.open('https://wa.me/525631372510', '_blank')}>
+            <Button
+              onClick={() => {
+                trackContactIntent('whatsapp');
+                window.open('https://wa.me/525631372510', '_blank');
+              }}
+            >
               Enviar Mensaje
             </Button>
           </div>
