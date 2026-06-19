@@ -1,10 +1,10 @@
-import { sha256Lowercase } from './hash';
+import { sha256Lowercase } from './hash.js';
 import type {
   BuildTikTokPayloadInput,
   TikTokEventPayload,
   TikTokEventProperties,
   TikTokEventValue,
-} from './types';
+} from './types.js';
 
 const RESERVED_KEYS = new Set([
   'event',

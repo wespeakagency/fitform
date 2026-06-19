@@ -1,4 +1,4 @@
-import type { TikTokEventName, TikTokTrackRequestBody, TikTokEventProperties } from './types';
+import type { TikTokEventName, TikTokTrackRequestBody, TikTokEventProperties } from './types.js';
 
 const getCurrentUrl = (): string =>
   typeof window === 'undefined' ? '' : window.location.href;

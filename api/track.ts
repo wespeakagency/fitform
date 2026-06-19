@@ -1,10 +1,10 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { buildTikTokPayload } from '../lib/tiktok/buildPayload';
+import { buildTikTokPayload } from '../lib/tiktok/buildPayload.js';
 import {
   isTikTokEventName,
   type TikTokEventName,
   type TikTokTrackRequestBody,
-} from '../lib/tiktok/types';
+} from '../lib/tiktok/types.js';
 
 const TIKTOK_TRACK_URL = 'https://business-api.tiktok.com/open_api/v1.3/event/track/';
 const TIKTOK_REQUEST_TIMEOUT_MS = 5_000;
