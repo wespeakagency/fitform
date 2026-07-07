@@ -4,6 +4,8 @@ export const TIKTOK_EVENT_NAMES = [
   'Contact',
   'ClickButton',
   'Lead',
+  'AddToCart',
+  'InitiateCheckout',
 ] as const;
 
 export type TikTokEventName = (typeof TIKTOK_EVENT_NAMES)[number];

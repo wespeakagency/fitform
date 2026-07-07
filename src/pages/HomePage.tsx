@@ -10,9 +10,11 @@ import { Team } from '@/sections/Team';
 import { FAQ } from '@/sections/FAQ';
 import { Contact } from '@/sections/Contact';
 import { useTikTokBsportSearchTracking } from '@/hooks/useTikTokBsportSearchTracking';
+import { useTikTokBsportFunnelTracking } from '@/hooks/useTikTokBsportFunnelTracking';
 
 export const HomePage: React.FC = () => {
   useTikTokBsportSearchTracking();
+  useTikTokBsportFunnelTracking();
 
   return (
     <>
