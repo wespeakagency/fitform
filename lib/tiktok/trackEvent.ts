@@ -33,6 +33,40 @@ const getSessionStorage = (): Storage | null => {
   }
 };
 
+declare global {
+  interface Window {
+    dataLayer?: Array<Record<string, unknown>>;
+  }
+}
+
+const GA4_EVENT_NAME_BY_TIKTOK: Partial<Record<TikTokEventName, string>> = {
+  ViewContent: 'view_item_list',
+  Search: 'search',
+  AddToCart: 'add_to_cart',
+  InitiateCheckout: 'begin_checkout',
+  Contact: 'contact',
+  ClickButton: 'click_button',
+  Lead: 'generate_lead',
+};
+
+const pushToDataLayer = (
+  eventName: TikTokEventName,
+  params: TikTokEventProperties,
+  eventId: string,
+): void => {
+  if (typeof window === 'undefined') return;
+
+  const ga4EventName = GA4_EVENT_NAME_BY_TIKTOK[eventName];
+  if (!ga4EventName) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: ga4EventName,
+    event_id: eventId,
+    ...params,
+  });
+};
+
 export async function trackEvent(
   eventName: TikTokEventName,
   params: TikTokEventProperties = {},
@@ -47,6 +81,8 @@ export async function trackEvent(
     event_id: createEventId(),
     ...params,
   };
+
+  pushToDataLayer(eventName, params, body.event_id ?? '');
 
   try {
     const response = await fetch('/api/track', {
