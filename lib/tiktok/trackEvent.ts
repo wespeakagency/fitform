@@ -7,7 +7,7 @@ const getReferrer = (): string | undefined =>
   typeof document === 'undefined' || !document.referrer ? undefined : document.referrer;
 
 const getTtclid = (): string | undefined => {
-  if (typeof window === 'undefined') return undefined;
+  if (typeof window === 'undefined')  return undefined;
 
   const ttclid = new URLSearchParams(window.location.search).get('ttclid');
   return ttclid || undefined;
