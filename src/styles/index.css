@@ -110,6 +110,28 @@ body [id*="bsport-widget"] .cleanslate .bs-search__results__container {
   background-color: #FFFFFF !important;
 }
 
+/* ─── MyBookings: fix pill-button text overflow on mobile ──────────────────
+   Bug: BSport's Fabrique button root uses a fixed height for the -lg size
+   variant. On narrow viewports the action pill labels ("Reservar para un
+   invitado", "Cancelar") wrap to 2 lines and the fixed-height border cuts
+   visually through the second line — a strikethrough effect.
+
+   Fix: let the pill grow to fit its content. We scope to
+   .bs-consumer-booking-page__root so we only affect the booking-page buttons
+   and leave tabs (.bs-fabrique-action-tab-container), icon-buttons
+   (.bs-fabrique-icon-button-root), and all other widget sections untouched.
+
+   If regressions appear on other -lg buttons inside the booking page, narrow
+   the selector further once we have the exact pill container class from a
+   logged-in inspection. ──────────────────────────────────────────────────── */
+body [id*="bsport-widget"] .cleanslate .bs-consumer-booking-page__root .bs-fabrique-button-root-lg {
+  height: auto !important;
+  min-height: 44px;
+  padding-block: 10px !important;
+  white-space: normal;
+  line-height: 1.2;
+}
+
 /* Custom scrollbar styles */
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
