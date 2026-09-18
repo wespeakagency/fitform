@@ -42,3 +42,11 @@ dist */
 .vercel
 .unlighthouse/
 .claude/
+
+# Personal tooling and local docs (not part of the repo)
+.atl/
+skills/
+search-snap.yml
+PERFORMANCE_AUDIT.md
+SEO_MIGRATION_ANALYSIS.md
+TIKTOK_TRACKING_AUTOMATION_ARCHITECTURE.md
