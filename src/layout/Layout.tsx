@@ -32,30 +32,52 @@ export const Layout: React.FC<LayoutProps> = ({
     <>
       {content.intro ? <p>{content.intro}</p> : null}
       {content.sections.map((section) => (
-        <React.Fragment key={section.title}>
-          <p><strong>{section.title}</strong></p>
+        <section
+          key={section.title}
+          className={
+            section.variant === 'highlight'
+              ? 'rounded-2xl border border-fitform-teal/25 bg-fitform-teal/5 dark:border-fitform-teal/40 dark:bg-fitform-teal/10 p-5 space-y-4'
+              : 'space-y-4'
+          }
+        >
+          <p className={section.variant === 'highlight' ? 'text-fitform-navy dark:text-white' : undefined}>
+            <strong>{section.title}</strong>
+          </p>
           {section.paragraphs.map((paragraph, index) => (
-            <p key={`${section.title}-${index}`}>
-              {paragraph.emphasis ? (
-                <>
-                  <strong>{paragraph.emphasis}{paragraph.separator ?? ':'}</strong>{' '}
-                </>
+            <div key={`${section.title}-${index}`} className="space-y-2">
+              <p>
+                {paragraph.emphasis ? (
+                  <>
+                    <strong>{paragraph.emphasis}{paragraph.separator ?? ':'}</strong>{' '}
+                  </>
+                ) : null}
+                {paragraph.text ?? null}
+                {paragraph.link ? (
+                  <>
+                    <a
+                      href={paragraph.link.href}
+                      className="text-fitform-navy dark:text-fitform-teal underline"
+                    >
+                      {paragraph.link.label}
+                    </a>
+                    {paragraph.textAfterLink ?? null}
+                  </>
+                ) : null}
+              </p>
+              {paragraph.items ? (
+                <ul
+                  className={`ml-5 space-y-1 ${
+                    paragraph.listStyle === 'lower-alpha' ? 'list-[lower-alpha]' : 'list-disc'
+                  }`}
+                >
+                  {paragraph.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               ) : null}
-              {paragraph.text}
-              {paragraph.link ? (
-                <>
-                  <a
-                    href={paragraph.link.href}
-                    className="text-fitform-navy dark:text-fitform-teal underline"
-                  >
-                    {paragraph.link.label}
-                  </a>
-                  {paragraph.textAfterLink ?? null}
-                </>
-              ) : null}
-            </p>
+            </div>
           ))}
-        </React.Fragment>
+        </section>
       ))}
     </>
   );

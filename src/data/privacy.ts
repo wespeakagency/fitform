@@ -10,10 +10,10 @@ export const PRIVACY_CONTENT: PolicyContent = {
           text: '',
         },
         {
-          text: 'Uno Espacios Corporativos, S.A. de C.V., sus representantes, consejeros, personas autorizadas garantiza el manejo responsable de los datos personales de los usuarios conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.',
+          text: 'GIP Developers, S.A. de C.V. o cualquier tercero autorizado por GIP Developers, S.A. de C.V. tratará los datos personales de los usuarios conforme al aviso de privacidad aplicable y a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.',
         },
         {
-          text: 'Los datos recabados se utilizan exclusivamente para la gestión de clases, pagos y comunicación con los usuarios.',
+          text: 'Los datos recabados se utilizan para la gestión de clases, pagos, comunicación con los usuarios, seguridad, protección de personas y bienes, y control de acceso, conforme al aviso de privacidad aplicable.',
         },
         {
           text: 'Los usuarios serán notificados de cualquier cambio en el Aviso de Privacidad por los canales apropiados.',
@@ -25,7 +25,7 @@ export const PRIVACY_CONTENT: PolicyContent = {
       paragraphs: [
         {
           emphasis: 'Cambios en los Términos y Condiciones',
-          text: 'Uno Espacios Corporativos, S.A. de C.V., sus representantes, consejeros, personas autorizadas se reserva el derecho de modificar los presentes términos y condiciones en cualquier momento. Las actualizaciones serán notificadas oportunamente; se recomienda revisarlos periódicamente.',
+          text: 'Fitform podrá modificar los presentes términos y condiciones cuando resulte necesario por razones operativas, comerciales, tecnológicas o regulatorias. Las modificaciones materiales serán comunicadas oportunamente; se recomienda revisarlos periódicamente.',
         },
       ],
     },

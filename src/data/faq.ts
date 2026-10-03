@@ -29,7 +29,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Puedo tomar la clase si estoy embarazada?',
     answer:
-      'No se recomienda realizar este tipo de entrenamiento durante el embarazo debido a su intensidad y al enfoque en el trabajo de core.\n\nSin embargo, estaremos encantados de acompañarte en tu proceso de recuperación y fortalecimiento durante el posparto.',
+      'Si estás embarazada, debés informarlo antes de reservar o iniciar la clase. FITFORM podrá solicitar autorización médica y limitar o negar la participación cuando considere razonablemente que la práctica puede representar un riesgo para vos o para terceros.\n\nLa prioridad es que cualquier participación sea segura y esté acompañada por la información médica necesaria.',
   },
   {
     question: '¿Cuál es nuestra política de cancelación?',
@@ -44,12 +44,12 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Existe lista de espera?',
     answer:
-      'Sí, puedes unirte a la lista de espera. Si se libera un lugar, se asigna automáticamente en orden de registro recibiendo un correo de confirmación.\n\nEn caso de no obtener un espacio, la clase se abonará a tu cuenta para que la uses después.\n\nImportante: al entrar a la lista de espera te comprometes a tomar la clase si se abre un lugar. Si ya no deseas asistir, debes salirte al menos 1 hora antes; de lo contrario, aplicará la política de cancelación tardía.',
+      'Sí, puedes unirte a la lista de espera. Si se libera un lugar, el sistema enviará una notificación por correo electrónico a quienes estén registrados para esa clase.\n\nEl espacio se asignará al primer Usuario que confirme su asistencia por el medio habilitado, sujeto a disponibilidad al momento de confirmar. Recibir la notificación no garantiza el lugar.\n\nUna vez confirmado y asignado el lugar, serás responsable de asistir. Si al inicio de la clase permaneces en lista de espera sin haber confirmado ni obtenido un lugar, tu crédito permanecerá disponible.',
   },
   {
     question: '¿Cómo puedo cancelar mi membresía mensual?',
     answer:
-      'Para cancelar tu membresía, envía tu solicitud a través de nuestro portal digital.\n\nNuestro equipo responderá en un plazo máximo de 7 días hábiles. Es necesario notificar con al menos 15 días de anticipación a tu próxima fecha de facturación para evitar el cargo correspondiente.',
+      'Para cancelar la renovación automática de tu membresía, envía tu solicitud a través del portal digital o el medio habilitado por FITFORM.\n\nLa cancelación surtirá efectos para periodos futuros y no genera devolución respecto del periodo previamente pagado y ya iniciado.',
   },
   {
     question: '¿Las clases son para hombres y mujeres?',
@@ -68,7 +68,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Puedo asistir si tengo alguna condición médica?',
     answer:
-      'Sí, pero es importante informar a tu coach antes de comenzar si tienes alguna lesión o condición médica.\n\nEsto nos permitirá adaptar los ejercicios y priorizar tu seguridad.',
+      'Sí, pero debés informar previamente a FITFORM y al instructor cualquier lesión, cirugía, enfermedad, mareo, desmayo, limitación física, restricción médica o condición que pueda afectar la práctica segura.\n\nFITFORM podrá solicitar autorización médica o limitar la participación cuando lo considere necesario para procurar tu seguridad.',
   },
   {
     question: '¿Qué beneficios puedo esperar al practicar FitForm regularmente?',
@@ -83,6 +83,6 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Cuál es la diferencia entre Clases, Membresías y Membresías Socio?',
     answer:
-      'Clases\nSon compras individuales, con un solo pago y vigencias normalmente más cortas (dependiendo el paquete a elegir)\nPago único (no recurrente).\nVigencia limitada según el paquete adquirido.\nPuedes cancelar con 10 horas de anticipación.\nSi cancelas fuera de tiempo o no asistes, se aplicará la política de cancelación / no show.\n\nIdeal si quieres probar FitForm o no deseas un compromiso mensual.\n\nMembresías\nSon planes con cargo mensual recurrente y mayor plazo de asistencia.\nCargo mensual automático durante 6 meses.\nPuedes cancelar cuando quieras notificando con 15 días de anticipación a tu siguiente fecha de cobro.\nCancela tus clases con al menos 10 horas de anticipación para evitar penalizaciones.\nPerfectas si buscas constancia y mejores beneficios por compromiso.\n\nMembresías Socio\nSon nuestro plan con mayores beneficios\nCargo mensual recurrente por 1 año.\nPermanencia mínima obligatoria de 3 meses.\nPuedes cancelar cuando quieras después del periodo mínimo, notificando con anticipación.\nPregunta en recepción para conocer todos los beneficios vigentes.',
+      'Clases\nSon compras individuales, con un solo pago y vigencias normalmente más cortas según el paquete elegido.\nPago único, no recurrente.\nVigencia limitada según el paquete adquirido.\nPuedes cancelar o modificar tu reserva hasta 12 horas antes del inicio sin penalización.\nSi cancelas fuera de tiempo o no asistes, se aplicará la política de cancelación / no show.\n\nIdeal si quieres probar FitForm o no deseas un compromiso mensual.\n\nMembresías\nSon planes con cargo mensual recurrente y mayor plazo de asistencia.\nLa renovación mensual se realiza automáticamente mediante el método de pago registrado.\nPuedes cancelar la renovación automática para periodos futuros; la cancelación no genera devolución respecto del periodo previamente pagado y ya iniciado.\nCancela tus clases con al menos 12 horas de anticipación para evitar penalizaciones.\nPerfectas si buscas constancia y mejores beneficios por compromiso.\n\nMembresías Socio\nSon nuestro plan con mayores beneficios.\nAplican las condiciones comerciales informadas al momento de contratación.\nPregunta en recepción para conocer todos los beneficios y vigencias aplicables.',
   },
 ];

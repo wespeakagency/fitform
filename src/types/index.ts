@@ -39,14 +39,17 @@ export interface PolicyLink {
 export interface PolicyParagraph {
   emphasis?: string;
   separator?: ':' | '';
-  text: string;
+  text?: string;
   link?: PolicyLink;
   textAfterLink?: string;
+  items?: string[];
+  listStyle?: 'disc' | 'lower-alpha';
 }
 
 export interface PolicySection {
   title: string;
   paragraphs: PolicyParagraph[];
+  variant?: 'default' | 'highlight';
 }
 
 export interface PolicyContent {
